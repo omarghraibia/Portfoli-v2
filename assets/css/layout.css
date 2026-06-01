@@ -162,12 +162,14 @@ section {
   position: absolute;
   inset: 0;
   z-index: 0;
+  pointer-events: none; /* Empêche le calque de la vidéo de bloquer les clics */
 }
 
 .video-background video {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  pointer-events: none; /* Sécurité supplémentaire pour certains navigateurs (Safari) */
 }
 
 .hero-section .container,
@@ -282,6 +284,7 @@ section {
 /* section projets */
 #projects {
   position: relative;
+  z-index: 10; /* Force la section projets à passer au-dessus d'un éventuel dépassement du Hero */
   overflow: hidden;
   background: linear-gradient(180deg, #0b1120 0%, #0f172a 50%, #09101b 100%);
 }

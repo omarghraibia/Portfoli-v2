@@ -54,93 +54,28 @@
   outline-offset: 4px;
 }
 
-/* --- CV button --- */
+/* Variantes */
 .btn-primary {
-  display: inline-flex;
-  align-items: center;
-  gap: 9px;
-  padding: 13px 26px;
-  background: #00e5a0;
-  color: #00261a;
-  border: 2px solid #00e5a0;
-  border-radius: 7px;
-  font-family: inherit;
-  font-size: 15px;
-  font-weight: 700;
-  letter-spacing: 0.03em;
-  cursor: pointer;
-  text-decoration: none;
-  position: relative;
-  overflow: hidden;
-  transition: background 0.22s cubic-bezier(0.4,0,0.2,1),
-              transform  0.22s cubic-bezier(0.4,0,0.2,1),
-              box-shadow 0.22s cubic-bezier(0.4,0,0.2,1);
-}
-.btn-primary::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.22) 50%, transparent 60%);
-  transform: translateX(-100%);
-  transition: transform 0.45s ease;
+  background-color: var(--accent-main);
+  border-color: var(--accent-main);
+  color: #06130d;
+  box-shadow: 0 0 24px var(--glow-shadow);
 }
 .btn-primary:hover {
-  background: #00ffb8;
-  border-color: #00ffb8;
-  transform: translateY(-3px);
-  box-shadow: 0 8px 28px rgba(0,229,160,0.28);
+  background-color: var(--accent-color-hover);
+  border-color: var(--accent-color-hover);
+  box-shadow: 0 12px 30px -5px var(--glow-shadow);
 }
-.btn-primary:hover::before { transform: translateX(100%); }
-.btn-primary:active { transform: translateY(-1px); }
 
-/* --- Projets button --- */
 .btn-outline {
-  display: inline-flex;
-  align-items: center;
-  gap: 9px;
-  padding: 13px 26px;
+  border: 2px solid var(--accent-main);
+  color: var(--text-primary);
   background: transparent;
-  color: #00e5a0;
-  border: 2px solid #00e5a0;
-  border-radius: 7px;
-  font-family: inherit;
-  font-size: 15px;
-  font-weight: 700;
-  letter-spacing: 0.03em;
-  cursor: pointer;
-  text-decoration: none;
-  position: relative;
-  overflow: hidden;
-  transition: color      0.22s cubic-bezier(0.4,0,0.2,1),
-              transform  0.22s cubic-bezier(0.4,0,0.2,1),
-              box-shadow 0.22s cubic-bezier(0.4,0,0.2,1);
 }
-.btn-outline::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: #00e5a0;
-  transform: scaleX(0);
-  transform-origin: left center;
-  transition: transform 0.28s cubic-bezier(0.4,0,0.2,1);
-  z-index: 0;
-}
-.btn-outline span,
-.btn-outline svg { position: relative; z-index: 1; }
 .btn-outline:hover {
-  color: #00261a;
-  transform: translateY(-3px);
-  box-shadow: 0 8px 28px rgba(0,229,160,0.28);
-}
-.btn-outline:hover::before { transform: scaleX(1); }
-.btn-outline:active { transform: translateY(-1px); }
-
-.btn-icon {
-  width: 17px;
-  height: 17px;
-  flex-shrink: 0;
-  position: relative;
-  z-index: 1;
+  background: var(--accent-main);
+  color: #000;
+  box-shadow: 0 12px 30px -5px rgba(16,185,129,0.3);
 }
 
 /* Hero group */
@@ -162,6 +97,86 @@
   display: none;
 }
 
+/* --- CV button --- */
+.hero-cta-group .btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 13px 26px;
+  background: #00e5a0;
+  color: #00261a;
+  border: 2px solid #00e5a0;
+  border-radius: 7px;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.22s cubic-bezier(0.4,0,0.2,1),
+              transform  0.22s cubic-bezier(0.4,0,0.2,1),
+              box-shadow 0.22s cubic-bezier(0.4,0,0.2,1);
+}
+.hero-cta-group .btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.22) 50%, transparent 60%);
+  transform: translateX(-100%);
+  transition: transform 0.45s ease;
+}
+.hero-cta-group .btn-hover-wrapper:hover .btn-primary {
+  background: #00ffb8;
+  border-color: #00ffb8;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(0,229,160,0.28);
+}
+.hero-cta-group .btn-hover-wrapper:hover .btn-primary::before { transform: translateX(100%); }
+.hero-cta-group .btn-hover-wrapper:active .btn-primary { transform: translateY(-1px); }
+
+/* --- Projets button --- */
+.hero-cta-group .btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 13px 26px;
+  background: transparent;
+  color: #00e5a0;
+  border: 2px solid #00e5a0;
+  border-radius: 7px;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  transition: color      0.22s cubic-bezier(0.4,0,0.2,1),
+              transform  0.22s cubic-bezier(0.4,0,0.2,1),
+              box-shadow 0.22s cubic-bezier(0.4,0,0.2,1);
+}
+.hero-cta-group .btn-outline::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #00e5a0;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.28s cubic-bezier(0.4,0,0.2,1);
+  z-index: 0;
+}
+.hero-cta-group .btn-outline span,
+.hero-cta-group .btn-outline svg { position: relative; z-index: 1; }
+.hero-cta-group .btn-hover-wrapper:hover .btn-outline {
+  color: #00261a;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(0,229,160,0.28);
+}
+.hero-cta-group .btn-hover-wrapper:hover .btn-outline::before { transform: scaleX(1); }
+.hero-cta-group .btn-hover-wrapper:active .btn-outline { transform: translateY(-1px); }
 
 .hero-cta-group .btn-icon {
   width: 17px;
@@ -354,11 +369,14 @@
   min-width: 0;
   min-height: 100%;
   overflow: hidden;
-  border: 1px solid rgba(226, 232, 240, 0.08);
-  border-radius: 16px;
-  background: rgba(15, 23, 42, 0.95);
-  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.25);
-  transition: transform 250ms ease, border-color 250ms ease, box-shadow 250ms ease, background 250ms ease;
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  background:
+    linear-gradient(180deg, rgba(30, 41, 59, 0.72) 0%, rgba(15, 23, 42, 0.92) 100%);
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.22),
+    0 0 0 1px rgba(255, 255, 255, 0.02) inset;
+  transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
   cursor: pointer;
 }
 
@@ -378,11 +396,11 @@
 }
 
 .project-card:hover {
-  transform: translateY(-8px) scale(1.01);
-  border-color: rgba(74, 222, 128, 0.35);
+  transform: translateY(-6px);
+  border-color: rgba(16, 185, 129, 0.45);
   box-shadow:
-    0 26px 60px rgba(0, 0, 0, 0.32),
-    0 0 22px rgba(74, 222, 128, 0.14);
+    0 20px 45px rgba(0, 0, 0, 0.32),
+    0 0 20px rgba(16, 185, 129, 0.12);
 }
 
 /* Effet de zoom sur l'image pour inciter au clic */
@@ -1488,14 +1506,9 @@
   }
 
   .project-actions,
-  .modal-actions {
-    flex-direction: column;
-  }
-
+  .modal-actions,
   .modal-gallery-controls {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column;
   }
 
   .modal {
