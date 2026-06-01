@@ -1,8 +1,4 @@
-﻿﻿/* components - boutons, formulaires, cartes, IDE */
-
-/* boutons */
-/* ===== BOUTONS ===== */
-.btn {
+﻿﻿.btn {
   display: inline-flex;
   flex-direction: row;
   align-items: center;
@@ -28,7 +24,6 @@
   flex-shrink: 0;
 }
 
-/* Effet brillance */
 .btn::after {
   content: '';
   position: absolute;
@@ -54,7 +49,6 @@
   outline-offset: 4px;
 }
 
-/* Variantes */
 .btn-primary {
   background-color: var(--accent-main);
   border-color: var(--accent-main);
@@ -78,7 +72,6 @@
   box-shadow: 0 12px 30px -5px rgba(16,185,129,0.3);
 }
 
-/* Hero group */
 .hero-cta-group {
   display: flex;
   align-items: center;
@@ -177,7 +170,6 @@
   z-index: 1;
 }
 
-/* Boutons projets */
 .btn-code {
   background: transparent;
   color: var(--text-primary);
@@ -228,7 +220,6 @@
   background: var(--border-color);
 }
 
-/* formulaires & contact */
 .contact-subtitle {
   text-align: center;
   margin-bottom: 3rem;
@@ -319,12 +310,10 @@
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* L'avion en papier "décolle" au survol du bouton */
 .submit-btn:hover svg {
   transform: translate(4px, -4px) rotate(15deg) scale(1.1);
 }
 
-/* cartes */
 .glass-panel {
   background: rgba(30, 41, 59, 0.4);
   backdrop-filter: blur(12px);
@@ -384,7 +373,6 @@
     0 0 20px rgba(16, 185, 129, 0.12);
 }
 
-/* Effet de zoom sur l'image pour inciter au clic */
 .project-card:hover .project-image {
   transform: scale(1.03);
 }
@@ -570,7 +558,7 @@
     radial-gradient(circle at 15% 10%, rgba(16, 185, 129, 0.14), transparent 28%),
     linear-gradient(180deg, #0b1120 0%, #0f172a 100%);
   padding: clamp(2rem, 5vw, 5rem) clamp(1rem, 5vw, 2rem);
-  min-height: calc(100vh - 100px); /* Ajusté pour accueillir le footer proprement */
+  min-height: calc(100vh - 100px); /* Fix: sticky footer spacing */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -618,7 +606,6 @@
   font-weight: 800;
 }
 
-/* page politique */
 .policy-card {
   max-width: 900px;
   margin: 3rem auto;
@@ -729,7 +716,6 @@
   }
 }
 
-/* éditeur code (IDE) */
 .editor {
   display: flex;
   flex-direction: column;
@@ -738,7 +724,7 @@
   border: 1px solid var(--glass-border);
   background: rgba(30, 41, 59, 0.4);
   box-shadow: var(--shadow-md);
-  height: 100%; /* S'étire pour remplir le conteneur parent (géré par align-items: stretch) */
+  height: 100%;
 }
 
 .editor-bar {
@@ -779,8 +765,8 @@
   background: var(--ide-bg);
   color: var(--ide-text);
   overflow-x: auto;
-  overflow-y: hidden; /* Prévient les overflows verticaux non voulus */
-  flex: 1; /* Prend tout l'espace restant pour repousser le bord en bas */
+  overflow-y: hidden;
+  flex: 1;
   font-family: "Courier New", monospace;
   font-size: 0.95rem;
   line-height: 1.45;
@@ -806,7 +792,6 @@
   font-style: italic;
 }
 
-/* carte compétence */
 .skill-item {
   background: rgba(30, 41, 59, 0.4);
   border: 1px solid var(--glass-border);
@@ -849,16 +834,8 @@
   font-size: 0.9rem;
 }
 
-/* Animation d'apparition successive des compétences */
-.skill-item {
-  opacity: 0; /* Caché par défaut, s'affiche avec l'animation */
-}
-
-.fade-in-section.is-visible .skill-item {
-  animation: slideInSkill 0.6s cubic-bezier(0.2, 0, 0.2, 1) forwards;
-}
-
-/* Délais en cascade pour chaque élément (1er, 2ème, 3ème...) */
+.skill-item { opacity: 0; }
+.fade-in-section.is-visible .skill-item { animation: slideInSkill 0.6s cubic-bezier(0.2, 0, 0.2, 1) forwards; }
 .fade-in-section.is-visible .skill-item:nth-child(1) { animation-delay: 0.1s; }
 .fade-in-section.is-visible .skill-item:nth-child(2) { animation-delay: 0.25s; }
 .fade-in-section.is-visible .skill-item:nth-child(3) { animation-delay: 0.4s; }
@@ -875,7 +852,7 @@
   }
 }
 
-/* modale / popup style */
+/*popup style */
 .modal {
   display: none;
   position: fixed;
@@ -979,7 +956,7 @@
   }
 }
 
-/* message succès / toast */
+/*message succès*/
 .toast {
   position: fixed;
   bottom: var(--sp-lg);
@@ -1004,7 +981,7 @@
   }
 }
 
-/* responsive (mobile) */
+/*mobile*/
 @media (max-width: 768px) {
   .btn {
     width: 100%;
@@ -1033,7 +1010,7 @@
   }
 }
 
-/* liens sociaux */
+/* Sociaux */
 .hero-socials {
   display: flex;
   gap: 1.5rem;
@@ -1065,7 +1042,6 @@
   outline-offset: 4px;
 }
 
-/* --- Couleurs des Marques --- */
 .github svg {
   fill: #f8fafc;
   stroke: none;
@@ -1081,7 +1057,7 @@
   stroke: none;
 }
 
-/* --- Effets au survol --- */
+/*hover*/
 .social-link:hover {
   transform: translateY(-4px);
   border-color: transparent;
@@ -1104,7 +1080,7 @@
   fill: #10b981;
 }
 
-/* modales */
+/*modales*/
 .modal {
   display: none;
   position: fixed;
@@ -1126,7 +1102,7 @@
   animation: fadeIn 0.3s ease;
 }
 
-/* modale colonne simple */
+/*modale colonne*/
 .single-column-modal {
   display: flex;
   flex-direction: column;
@@ -1303,12 +1279,12 @@
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
-  scrollbar-width: none; /* Cache la scrollbar sur Firefox */
-  -ms-overflow-style: none; /* Cache la scrollbar sur IE/Edge */
+  scrollbar-width: none; 
+  -ms-overflow-style: none;
 }
 
 .modal-gallery-track::-webkit-scrollbar {
-  display: none; /* Cache la scrollbar sur Chrome/Safari/Edge */
+  display: none;
 }
 
 .modal-gallery-slide {
@@ -1352,11 +1328,10 @@
   display: flex;
   justify-content: space-between;
   padding: 0 1rem;
-  pointer-events: none; /* Laisse le clic passer à travers le conteneur vide */
-}
+  pointer-events: none; 
 
 .modal-gallery-controls .btn-icon {
-  pointer-events: auto; /* Mais réactive le clic sur les boutons */
+  pointer-events: auto;
   background: rgba(15, 23, 42, 0.8);
   backdrop-filter: blur(4px);
 }
@@ -1492,7 +1467,6 @@
     min-height: auto;
   }
 
-  /* On retire .modal-gallery-controls d'ici pour que les flèches restent alignées horizontalement */
   .project-actions,
   .modal-actions {
     flex-direction: column;
@@ -1522,9 +1496,6 @@
     margin: -24px -24px 24px;
   }
 
-  .modal-gallery-track {
-    /* On maintient le 100% de largeur pour le mobile sans gap */
-  }
 
   .modal-gallery-slide {
     padding: var(--sp-md);
@@ -1540,8 +1511,8 @@
 
   .modal-project-shell {
     grid-template-columns: 1fr;
-    max-height: none; /* Retrait de la restriction sur mobile */
-    overflow-y: auto; /* Défilement global sur mobile */
+    max-height: none;
+    overflow-y: auto;
   }
   
   .modal-project-left {
@@ -1641,7 +1612,6 @@
   }
 }
 
-/* terminal caché (easter egg) */
 .terminal-overlay {
   position: fixed;
   inset: 0;
@@ -1721,9 +1691,6 @@
   outline: none;
 }
 
-/* fin de components.css */
-
-/* finition modal projet */
 #project-modal .modal-content,
 #project-modal .single-column-modal {
   padding: 2rem;
@@ -1738,7 +1705,6 @@
   scrollbar-color: rgba(16, 185, 129, 0.55) transparent;
 }
 
-/* barre défilement Chrome/Edge/Safari */
 #project-modal .modal-content::-webkit-scrollbar,
 #project-modal .single-column-modal::-webkit-scrollbar {
   width: 10px;
@@ -1765,9 +1731,7 @@
   background: rgba(16, 185, 129, 0.85);
 }
 
-#/* rythme contenu interne */
-#project-modal .modal-body,
-#project-modal #modal-body {
+#project-modal .modal-body {
   display: grid;
   gap: 1.25rem;
 }
@@ -1785,7 +1749,6 @@
   margin-bottom: 1.5rem;
 }
 
-/* actions bas */
 #project-modal .modal-actions,
 #project-modal .modal-actions-row {
   display: flex;
@@ -1833,16 +1796,16 @@
 
 .video-background-container iframe {
   width: 100vw;
-  height: 56.25vw; /* 9/16 = 0.5625 */
+  height: 56.25vw; 
   min-height: 100vh;
-  min-width: 177.77vh; /* 16/9 = 1.7777 */
+  min-width: 177.77vh;  
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
-/* YouTube background: zoom/crop technique */
+ 
 .hero-section {
   position: relative;
   width: 100%;

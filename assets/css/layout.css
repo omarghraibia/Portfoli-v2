@@ -1,6 +1,3 @@
-/* layout - grille, flexbox, structure */
-
-/* Container — max-width and centering */
 .container {
   max-width: 1200px;
   width: 100%;
@@ -8,7 +5,6 @@
   padding-inline: clamp(1rem, 4vw, var(--sp-lg));
 }
 
-/* en-tête / nav */
 .site-header {
   position: fixed;
   width: 100%;
@@ -85,7 +81,6 @@
   border-radius: 6px;
 }
 
-/* menu hamburger */
 .hamburger {
   display: none;
   cursor: pointer;
@@ -105,7 +100,6 @@
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-/* sections principales */
 main {
   min-height: 100vh;
 }
@@ -123,7 +117,6 @@ section {
   color: var(--text-primary);
 }
 
-/* section hero (accueil) */
 .hero-section {
   position: relative;
   min-height: 100vh;
@@ -162,14 +155,14 @@ section {
   position: absolute;
   inset: 0;
   z-index: 0;
-  pointer-events: none; /* Empêche le calque de la vidéo de bloquer les clics */
+  pointer-events: none; 
 }
 
 .video-background video {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  pointer-events: none; /* Sécurité supplémentaire pour certains navigateurs (Safari) */
+  pointer-events: none; 
 }
 
 .hero-section .container,
@@ -265,7 +258,6 @@ section {
   }
 }
 
-/* section compétences */
 .skills-container {
   display: grid;
   grid-template-columns: minmax(280px, 1.15fr) minmax(320px, 0.85fr);
@@ -281,10 +273,9 @@ section {
   gap: var(--sp-lg);
 }
 
-/* section projets */
 #projects {
   position: relative;
-  z-index: 10; /* Force la section projets à passer au-dessus d'un éventuel dépassement du Hero */
+  z-index: 10;  
   overflow: hidden;
   background: linear-gradient(180deg, #0b1120 0%, #0f172a 50%, #09101b 100%);
 }
@@ -319,7 +310,6 @@ section {
   }
 }
 
-/* pied de page */
 .site-footer {
   background: #09101b;
   padding: 0;
@@ -456,7 +446,7 @@ section {
 
   .hero-copy h1 {
     white-space: normal;
-    font-size: clamp(2.2rem, 9vw, 3.2rem); /* Réduit la taille pour éviter que ça ne coupe en haut */
+    font-size: clamp(2.2rem, 9vw, 3.2rem);  
   }
 
   .hero-socials,
@@ -496,5 +486,3 @@ section {
     gap: 0.8rem;
   }
 }
-
-/* fin de layout.css */

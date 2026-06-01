@@ -1,8 +1,3 @@
-/**
- * MAIN.JS - Effet typing + interactions portfolio
- */
-
-
 class TypingEffect {
   constructor(elementId, text, speed = 50) {
     this.element = document.getElementById(elementId);
@@ -50,7 +45,6 @@ class TypingEffect {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Ecoute scroll navbar
   const siteHeader = document.querySelector('.site-header');
   if (siteHeader) {
     let lastScrollY = window.scrollY;
@@ -64,7 +58,6 @@ document.addEventListener('DOMContentLoaded', () => {
         siteHeader.classList.remove('scrolled');
       }
 
-      // Cache la navbar en scrollant vers le bas, l'affiche en scrollant vers le haut
       if (currentScrollY > lastScrollY && currentScrollY > 100) {
         siteHeader.classList.add('header-hidden');
       } else {
@@ -74,7 +67,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // menu hamburger mobile
   const hamburger = document.getElementById('hamburger-menu');
   const navLinks = document.querySelector('.nav-links');
 
@@ -86,7 +78,6 @@ document.addEventListener('DOMContentLoaded', () => {
       hamburger.setAttribute('aria-expanded', !isExpanded);
     });
 
-    // ferme menu clic lien
     document.querySelectorAll('.nav-links a').forEach(link => {
       link.addEventListener('click', () => {
         navLinks.classList.remove('active');
@@ -156,7 +147,6 @@ document.addEventListener('DOMContentLoaded', () => {
       dates: 'Janvier 2024 - Février 2024',
       team: '2 personnes',
       duration: '30 jours',
-      description: 'Projet vitrine et gestion de rendez-vous pour un cabinet de kinésithérapie. L’objectif était de créer une interface claire pour présenter les services, guider les patients et rendre la prise de contact plus rapide.',
       description: 'Solution digitale sur mesure conçue pour moderniser l\'image d\'un cabinet médical et automatiser la prise de rendez-vous.<br><br><strong>Mes Réalisations Clés :</strong><br>• <strong>Back-end :</strong> Modélisation et exploitation d\'une base de données SQL pour structurer les plannings.<br>• <strong>Front-end :</strong> Programmation d\'interfaces dynamiques en JavaScript et design responsive.<br>• <strong>Design & UX :</strong> Création de l\'identité visuelle (logo) avec un focus sur un parcours utilisateur fluide.<br><br><em>Ce projet démontre ma capacité à intervenir sur l\'intégralité d\'un cycle de développement et à livrer un produit technique répondant à un besoin métier réel.</em>',
       details: ['Interface responsive', 'Parcours patient simplifié', 'Structure prête pour une prise de rendez-vous'],
       technologies: ['HTML5', 'CSS3', 'JavaScript', 'SQL'],
@@ -301,13 +291,11 @@ document.addEventListener('DOMContentLoaded', () => {
   modalOverlay?.addEventListener('click', closeProjectModal);
 
   document.addEventListener('keydown', event => {
-    // ferme avec Echap
     if (event.key === 'Escape') {
       if (activeModal) closeModal(activeModal);
       return;
     }
     
-    // garde le focus dans la modale (tab cycle)
     if (event.key === 'Tab' && activeModal) {
       const focusable = activeModal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
       if (!focusable.length) return;
@@ -347,7 +335,6 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', updateActiveNavLink);
   updateActiveNavLink();
 
-  // animation fade-in au scroll
   const observerOptions = {
     root: null,
     rootMargin: '0px',
@@ -367,12 +354,11 @@ document.addEventListener('DOMContentLoaded', () => {
     observer.observe(section);
   });
 
-  // Wrapper JS pour corriger le glitch hover : n'enveloppe que les 2 premiers CTAs
   (function wrapFirstTwoHeroCTAs() {
     const nodeList = document.querySelectorAll('.hero-cta-group .btn, .hero-cta-group a');
     if (!nodeList || nodeList.length === 0) return;
 
-    const ctas = Array.from(nodeList).slice(0, 2); // seulement les deux premiers
+    const ctas = Array.from(nodeList).slice(0, 2); 
     ctas.forEach(btn => {
       if (!btn.querySelector('.btn-inner')) {
         const span = document.createElement('span');
@@ -384,7 +370,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   })();
 
-  // compteur caractères message
   const messageInput = document.getElementById('message');
   const charCount = document.getElementById('char-count');
   
@@ -395,7 +380,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // protège email/tel contre les bots
   document.querySelectorAll('.protected-contact').forEach(contactLink => {
     const buildLink = () => {
       const user = contactLink.getAttribute('data-user');
@@ -409,13 +393,11 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     };
 
-    // déclencheur humain (souris / tactile / clavier)
     contactLink.addEventListener('mouseenter', buildLink);
     contactLink.addEventListener('touchstart', buildLink, {passive: true});
     contactLink.addEventListener('focus', buildLink);
   });
 
-  // mini terminal 
   const terminalOverlay = document.getElementById('terminal-overlay');
   const terminalInput = document.getElementById('terminal-input');
   const terminalOutput = document.getElementById('terminal-output');
@@ -436,7 +418,6 @@ document.addEventListener('DOMContentLoaded', () => {
       setTimeout(() => terminalOverlay.classList.add('hidden'), 300);
     };
 
-    // raccourci terminal Ctrl+Alt+T / ~ / ²
     document.addEventListener('keydown', (e) => {
       if ((e.ctrlKey && e.altKey && e.key.toLowerCase() === 't') || e.key === '~' || e.key === '²') {
         e.preventDefault();
@@ -448,7 +429,6 @@ document.addEventListener('DOMContentLoaded', () => {
     terminalOverlay.addEventListener('click', (e) => { if (e.target === terminalOverlay) closeTerminal(); });
     terminalBody.addEventListener('click', () => terminalInput.focus()); // garde focus input
 
-    // commandes terminal
     const terminalCommands = {
       help: () => `Commandes disponibles :<br>- <strong>whoami</strong> : En savoir plus sur moi<br>- <strong>skills</strong> : Mes compétences techniques<br>- <strong>projects</strong> : Afficher mes projets récents<br>- <strong>clear</strong> : Effacer l'écran<br>- <strong>exit</strong> : Fermer le terminal<br>- <strong>sudo</strong> : (Accès administrateur)`,
       whoami: () => `<strong>Omar Ghraybia</strong><br>Développeur d'Applications & Étudiant en BUT Informatique.`,
@@ -463,19 +443,15 @@ document.addEventListener('DOMContentLoaded', () => {
       if (e.key === 'Enter') {
         const cmd = terminalInput.value.trim().toLowerCase();
         if (cmd) {
-          // affiche la commande tapée
           terminalOutput.innerHTML += `<p><span class="prompt">omar@portfolio:~$</span> ${cmd}</p>`;
           
-          // lance la commande
           if (terminalCommands[cmd]) {
-            // exécute la commande si c'est une fonction, sinon affiche la valeur
             const response = typeof terminalCommands[cmd] === 'function' ? terminalCommands[cmd]() : terminalCommands[cmd];
             if (response) terminalOutput.innerHTML += `<p>${response}</p>`;
           } else {
             terminalOutput.innerHTML += `<p class="error">bash: ${cmd}: command not found. Tapez 'help' pour les commandes disponibles.</p>`;
           }
         }
-        // reset input + scroll
         terminalInput.value = '';
         terminalBody.scrollTop = terminalBody.scrollHeight;
       }
