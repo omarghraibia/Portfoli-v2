@@ -1010,7 +1010,6 @@
   }
 }
 
-/* Sociaux */
 .hero-socials {
   display: flex;
   gap: 1.5rem;
@@ -1057,7 +1056,6 @@
   stroke: none;
 }
 
-/*hover*/
 .social-link:hover {
   transform: translateY(-4px);
   border-color: transparent;
@@ -1102,7 +1100,6 @@
   animation: fadeIn 0.3s ease;
 }
 
-/*modale colonne*/
 .single-column-modal {
   display: flex;
   flex-direction: column;
@@ -1782,7 +1779,6 @@
   }
 }
 
-/* Video background container (responsive 16:9 iframe) */
 .video-background-container {
   position: fixed;
   top: 0;
