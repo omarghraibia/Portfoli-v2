@@ -140,11 +140,11 @@ document.addEventListener('DOMContentLoaded', () => {
   successClose?.addEventListener('click', closeSuccessModal);
   successOverlay?.addEventListener('click', closeSuccessModal);
 
-  // TODO: Extraire la logique du terminal dans une classe séparée plus tard
+  // TODO: Isoler la logique des commandes du terminal dans un module ou un fichier séparé à l'avenir.
   const projectData = {
     'allo-kine': {
       title: 'Allo Kiné',
-      period: '2024',
+      period: '2026',
       dates: 'Janvier 2024 - Février 2024',
       team: '2 personnes',
       duration: '30 jours',
@@ -154,19 +154,6 @@ document.addEventListener('DOMContentLoaded', () => {
       gallery: ['Accueil cabinet', 'Parcours rendez-vous', 'Structure front-end'],
       codeLink: 'https://github.com/omarghraibia/allokine',
       liveLink: 'https://allokine.vercel.app/'
-    },
-    'debian-deploy': {
-      title: 'Déploiement Debian',
-      period: '2024',
-      dates: 'Mars 2024 - Avril 2024',
-      team: '3 personnes',
-      duration: '45 jours',
-      description: 'Projet système centré sur le déploiement et le durcissement d’un serveur Debian. Le travail couvre la configuration d’une stack web, les services réseau et les premières règles de sécurisation.',
-      details: ['Installation serveur Debian', 'Configuration Apache et PostgreSQL', 'Sécurisation et documentation technique'],
-      technologies: ['Linux', 'Apache', 'PostgreSQL'],
-      gallery: ['Terminal Debian', 'Services web', 'Documentation serveur'],
-      codeLink: 'https://github.com',
-      liveLink: '#'
     },
     'inetum': {
       title: 'Inetum',
@@ -227,6 +214,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const closeProjectModal = () => closeModal(projectModal);
 
   const bindGalleryControls = () => {
+    // TODO: Ajouter un support tactile natif (swipe/TouchEvents) pour la galerie sur mobile
     const gallery = modalBody?.querySelector('.modal-gallery-track');
     const previousButton = modalBody?.querySelector('[data-gallery="previous"]');
     const nextButton = modalBody?.querySelector('[data-gallery="next"]');
@@ -355,7 +343,6 @@ document.addEventListener('DOMContentLoaded', () => {
     observer.observe(section);
   });
 
-  // Fix: Empêche le bug de transition sur les boutons
   (function wrapFirstTwoHeroCTAs() {
     const nodeList = document.querySelectorAll('.hero-cta-group .btn, .hero-cta-group a');
     if (!nodeList || nodeList.length === 0) return;
@@ -436,7 +423,7 @@ document.addEventListener('DOMContentLoaded', () => {
       help: () => `Commandes disponibles :<br>- <strong>whoami</strong> : En savoir plus sur moi<br>- <strong>skills</strong> : Mes compétences techniques<br>- <strong>projects</strong> : Afficher mes projets récents<br>- <strong>clear</strong> : Effacer l'écran<br>- <strong>exit</strong> : Fermer le terminal<br>- <strong>sudo</strong> : (Accès administrateur)`,
       whoami: () => `<strong>Omar Ghraybia</strong><br>Développeur d'Applications & Étudiant en BUT Informatique.`,
       skills: () => `[+] Java, JavaScript, HTML/CSS<br>[+] SQL, PostgreSQL<br>[+] Linux, Debian, Administration Système`,
-      projects: () => `1. Allo Kiné<br>2. Déploiement Debian<br>3. Le Tourmentin<br>Fermez le terminal pour voir les détails !`,
+      projects: () => `1. Allo Kiné<br>2. Le Tourmentin<br>Fermez le terminal pour voir les détails !`,
       sudo: () => `<span class="error">omar is not in the sudoers file. This incident will be reported.</span>`,
       clear: () => { terminalOutput.innerHTML = ''; return ''; },
       exit: () => { closeTerminal(); return 'Fermeture...'; }
