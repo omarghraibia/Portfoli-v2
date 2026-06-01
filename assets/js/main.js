@@ -140,6 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
   successClose?.addEventListener('click', closeSuccessModal);
   successOverlay?.addEventListener('click', closeSuccessModal);
 
+  // TODO: Extraire la logique du terminal dans une classe séparée plus tard
   const projectData = {
     'allo-kine': {
       title: 'Allo Kiné',
@@ -354,6 +355,7 @@ document.addEventListener('DOMContentLoaded', () => {
     observer.observe(section);
   });
 
+  // Fix: Empêche le bug de transition sur les boutons
   (function wrapFirstTwoHeroCTAs() {
     const nodeList = document.querySelectorAll('.hero-cta-group .btn, .hero-cta-group a');
     if (!nodeList || nodeList.length === 0) return;
@@ -427,7 +429,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     terminalClose.addEventListener('click', closeTerminal);
     terminalOverlay.addEventListener('click', (e) => { if (e.target === terminalOverlay) closeTerminal(); });
-    terminalBody.addEventListener('click', () => terminalInput.focus()); // garde focus input
+    // TODO: Ajouter un système de logs pour les commandes du terminal
+    terminalBody.addEventListener('click', () => terminalInput.focus()); // Maintient le focus dans l'input
 
     const terminalCommands = {
       help: () => `Commandes disponibles :<br>- <strong>whoami</strong> : En savoir plus sur moi<br>- <strong>skills</strong> : Mes compétences techniques<br>- <strong>projects</strong> : Afficher mes projets récents<br>- <strong>clear</strong> : Effacer l'écran<br>- <strong>exit</strong> : Fermer le terminal<br>- <strong>sudo</strong> : (Accès administrateur)`,
