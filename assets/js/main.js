@@ -140,12 +140,11 @@ document.addEventListener('DOMContentLoaded', () => {
   successClose?.addEventListener('click', closeSuccessModal);
   successOverlay?.addEventListener('click', closeSuccessModal);
 
-  // TODO: Isoler la logique des commandes du terminal dans un module ou un fichier séparé à l'avenir.
   const projectData = {
     'allo-kine': {
       title: 'Allo Kiné',
       period: '2026',
-      dates: 'Janvier 2024 - Février 2024',
+      dates: 'Janvier 2026 - Février 2026',
       team: '2 personnes',
       duration: '30 jours',
       description: 'Solution digitale sur mesure conçue pour moderniser l\'image d\'un cabinet médical et automatiser la prise de rendez-vous.<br><br><strong>Mes Réalisations Clés :</strong><br>• <strong>Back-end :</strong> Modélisation et exploitation d\'une base de données SQL pour structurer les plannings.<br>• <strong>Front-end :</strong> Programmation d\'interfaces dynamiques en JavaScript et design responsive.<br>• <strong>Design & UX :</strong> Création de l\'identité visuelle (logo) avec un focus sur un parcours utilisateur fluide.<br><br><em>Ce projet démontre ma capacité à intervenir sur l\'intégralité d\'un cycle de développement et à livrer un produit technique répondant à un besoin métier réel.</em>',
@@ -214,7 +213,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const closeProjectModal = () => closeModal(projectModal);
 
   const bindGalleryControls = () => {
-    // TODO: Ajouter un support tactile natif (swipe/TouchEvents) pour la galerie sur mobile
     const gallery = modalBody?.querySelector('.modal-gallery-track');
     const previousButton = modalBody?.querySelector('[data-gallery="previous"]');
     const nextButton = modalBody?.querySelector('[data-gallery="next"]');
@@ -343,22 +341,6 @@ document.addEventListener('DOMContentLoaded', () => {
     observer.observe(section);
   });
 
-  (function wrapFirstTwoHeroCTAs() {
-    const nodeList = document.querySelectorAll('.hero-cta-group .btn, .hero-cta-group a');
-    if (!nodeList || nodeList.length === 0) return;
-
-    const ctas = Array.from(nodeList).slice(0, 2); 
-    ctas.forEach(btn => {
-      if (!btn.querySelector('.btn-inner')) {
-        const span = document.createElement('span');
-        span.className = 'btn-inner';
-        span.innerHTML = btn.innerHTML;
-        btn.innerHTML = '';
-        btn.appendChild(span);
-      }
-    });
-  })();
-
   const messageInput = document.getElementById('message');
   const charCount = document.getElementById('char-count');
   
@@ -416,7 +398,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     terminalClose.addEventListener('click', closeTerminal);
     terminalOverlay.addEventListener('click', (e) => { if (e.target === terminalOverlay) closeTerminal(); });
-    // TODO: Ajouter un système de logs pour les commandes du terminal
     terminalBody.addEventListener('click', () => terminalInput.focus()); // Maintient le focus dans l'input
 
     const terminalCommands = {
