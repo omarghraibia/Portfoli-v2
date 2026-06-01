@@ -154,16 +154,20 @@ document.addEventListener('DOMContentLoaded', () => {
   successOverlay?.addEventListener('click', () => closeModal(successModal));
 
   const projectData = {
-    'allo-kine': {
+   'allo-kine': {
       title: 'Allo Kiné',
       period: '2026',
-      dates: 'Janvier 2026 - Février 2026',
-      team: '2 personnes',
-      duration: '30 jours',
-      description: 'Projet universitaire réalisé en binôme. Développement d\'un site vitrine couplé à un système de gestion de rendez-vous pour un cabinet de kinésithérapie.<br><br><strong>Mes tâches :</strong><br>• Modélisation de la base de données SQL pour les plannings.<br>• Intégration des interfaces dynamiques en JavaScript.<br>• Création du logo et du parcours utilisateur (UX).',
+      dates: 'Janvier 2026 - Mars 2026',
+      team: '1 personne',
+      duration: '60 jours',
+      description: 'Développement d\'une solution digitale sur mesure pour le cabinet de kinésithérapie de mon père. Ce projet personnel m\'a permis de gérer l\'intégralité de la création d\'un outil métier concret pour moderniser son activité et faciliter la gestion de ses patients.<br><br><strong>Mes réalisations :</strong><br>• Modélisation de la base de données SQL pour les plannings.<br>• Intégration des interfaces dynamiques en JavaScript.<br>• Création de l\'identité visuelle (logo) et optimisation du parcours utilisateur (UX).',
       details: ['Interface responsive', 'Parcours patient simplifié', 'Structure prête pour une prise de rendez-vous'],
       technologies: ['HTML5', 'CSS3', 'JavaScript', 'SQL'],
-      gallery: ['Accueil cabinet', 'Parcours rendez-vous', 'Structure front-end'],
+      gallery: [
+        { src: 'assets/img/projects/allo-kine-1.jpg', caption: 'Accueil du cabinet' },
+        { src: 'assets/img/projects/allo-kine-2.jpg', caption: 'Parcours rendez-vous' },
+        { src: 'assets/img/projects/allo-kine-3.jpg', caption: 'Structure front-end' }
+      ],
       codeLink: 'https://github.com/omarghraibia/allokine',
       liveLink: 'https://allokine.vercel.app/'
     },

@@ -1013,3 +1013,47 @@
 @media (max-width: 720px) {
   #project-modal .modal-content, #success-modal .modal-content { max-width: 100%; }
 }
+.hero-socials {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.social-link {
+  color: var(--text-secondary);
+  transition: color 0.3s ease, transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+}
+
+.social-link svg {
+  width: 28px;
+  height: 28px;
+  fill: currentColor; 
+}
+
+.social-link:hover {
+  color: var(--accent-main); 
+  transform: translateY(-4px) scale(1.1); 
+
+
+.footer-socials {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.footer-socials a {
+  color: var(--text-secondary);
+  transition: color 0.3s ease, transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+}
+
+.footer-socials a svg {
+  transition: stroke 0.3s ease;
+}
+
+.footer-socials a:hover {
+  color: var(--accent-main);
+  transform: translateY(-3px);
+}
