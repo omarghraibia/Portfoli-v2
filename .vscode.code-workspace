@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": ".vscode"
+		},
+		{
+			"path": "assets"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": ".sixth",
+		"liveServer.settings.port": 5501
+	}
+}
