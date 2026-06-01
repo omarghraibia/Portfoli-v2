@@ -87,6 +87,13 @@
   flex-wrap: wrap;
 }
 
+.hero-cta-group .btn-hover-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+}
+
 .hero-cta-group .btn {
   flex-direction: row !important;
   align-items: center !important;
