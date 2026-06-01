@@ -45,7 +45,6 @@ class TypingEffect {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  
   const siteHeader = document.querySelector('.site-header');
   if (siteHeader) {
     let lastScrollY = window.scrollY;
@@ -101,14 +100,9 @@ document.addEventListener('DOMContentLoaded', () => {
           ideObserver.disconnect();
         }
       });
-    }, { threshold: 0.3 });
+    }, { threshold: 0.1 });
 
-    const skillsSection = document.getElementById('skills');
-    if (skillsSection) {
-      ideObserver.observe(skillsSection);
-    } else {
-      ideObserver.observe(codeEditor);
-    }
+    ideObserver.observe(codeEditor); 
   }
 
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -154,7 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
   successOverlay?.addEventListener('click', () => closeModal(successModal));
 
   const projectData = {
-   'allo-kine': {
+    'allo-kine': {
       title: 'Allo Kiné',
       period: '2026',
       dates: 'Février 2026 - Avril 2026',
@@ -164,11 +158,11 @@ document.addEventListener('DOMContentLoaded', () => {
       details: ['Interface responsive', 'Parcours patient simplifié', 'Structure prête pour une prise de rendez-vous'],
       technologies: ['HTML5', 'CSS3', 'JavaScript', 'SQL'],
       gallery: [
-        { src: 'assets/allokine/Accueil.png', },
+        { src: 'assets/allokine/Accueil.png',},
         { src: 'assets/allokine/avis.png',},
         { src: 'assets/allokine/connexion.png',},
-        { src: 'assets/allokine/contact.png',}
-        { src: 'assets/allokine/Galerie.png',}
+        { src: 'assets/allokine/contact.png',},
+        { src: 'assets/allokine/Galerie.png',},
         { src: 'assets/allokine/Tarifs.png',}
       ],
       codeLink: 'https://github.com/omarghraibia/allokine',
@@ -255,12 +249,23 @@ document.addEventListener('DOMContentLoaded', () => {
       modalBody.innerHTML = `
         <div class="modal-media-full">
           <div class="modal-gallery-track" aria-label="Galerie du projet ${project.title}">
-            ${project.gallery.map((item, index) => `
-              <figure class="modal-gallery-slide">
-                <div class="modal-gallery-image">${String(index + 1).padStart(2, '0')}</div>
-                <figcaption>${item}</figcaption>
-              </figure>
-            `).join('')}
+            ${project.gallery.map((item, index) => {
+              if (typeof item === 'object') {
+                return `
+                  <figure class="modal-gallery-slide">
+                    <div class="modal-gallery-image" style="padding:0; overflow:hidden;">
+                      <img src="${item.src}" alt="${item.caption}" loading="lazy" style="width:100%; height:100%; object-fit:cover; display:block;" />
+                    </div>
+                  </figure>
+                `;
+              } else {
+                return `
+                  <figure class="modal-gallery-slide">
+                    <div class="modal-gallery-image">${String(index + 1).padStart(2, '0')}</div>
+                  </figure>
+                `;
+              }
+            }).join('')}
           </div>
           <div class="modal-gallery-controls">
             <button type="button" class="btn-icon" data-gallery="previous" aria-label="Image précédente">
@@ -340,7 +345,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', updateActiveNavLink);
   updateActiveNavLink();
 
-  const observerOptions = { root: null, rootMargin: '0px', threshold: 0.15 };
+  const observerOptions = { root: null, rootMargin: '0px 0px -50px 0px', threshold: 0 };
   const observer = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
