@@ -117,6 +117,10 @@ section {
 .section-title {
   text-align: center;
   margin-bottom: var(--sp-xl);
+  font-size: clamp(2rem, 3vw, 2.8rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
 }
 
 /* section hero (accueil) */
@@ -200,17 +204,20 @@ section {
 .hero-copy h1 {
   user-select: none;
   -webkit-user-select: none;
-  font-size: clamp(2.35rem, 4.6vw, 4.25rem);
+  font-size: clamp(3rem, 7vw, 5rem);
   margin-bottom: 1rem;
   max-width: 100%;
   white-space: nowrap;
+  line-height: 1.05;
+  letter-spacing: -0.05em;
 }
 
 .hero-copy p {
-  max-width: 600px;
+  max-width: 720px;
   margin: 0 auto;
   font-size: 1.05rem;
-  line-height: 1.6;
+  line-height: 1.8;
+  color: var(--text-secondary);
 }
 
 .hero-cta-group {
