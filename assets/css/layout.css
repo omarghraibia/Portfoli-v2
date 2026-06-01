@@ -185,7 +185,7 @@ section {
 }
 
 .hero-section .container { 
-  position: relative; /* Indispensable pour que le z-index fonctionne */
+  position: relative; 
   z-index: 10; 
   padding: clamp(6rem, 12vh, 9rem) var(--sp-lg) calc(var(--sp-xl) + 3rem); 
   max-width: 1280px; 
@@ -264,7 +264,7 @@ section {
   gap: 1.5rem; 
 }
 
- .skills-container { 
+.skills-container { 
   display: grid; 
   grid-template-columns: 1fr 1fr; 
   gap: var(--sp-xl); 
@@ -272,27 +272,16 @@ section {
   padding: 0 var(--sp-lg); 
 }
 
- .skills-list { 
+.skills-list { 
   display: grid; 
   grid-template-columns: repeat(2, 1fr); 
   gap: var(--sp-md); 
 }
 
- .editor {
+.editor {
   min-width: 0; 
 }
 
- @media (max-width: 1024px) {
-  .skills-container { 
-    grid-template-columns: 1fr;  
-  }
-}
-
-@media (max-width: 640px) {
-  .skills-list { 
-    grid-template-columns: 1fr;  
-  }
-}
 #projects { 
   position: relative; 
   z-index: 10; 
@@ -366,6 +355,7 @@ section {
   .header-inner { gap: var(--sp-md); }
   .nav-links { gap: var(--sp-lg); }
   .skills-container, .projects-grid { gap: var(--sp-lg); }
+  .skills-container { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 768px) {
@@ -412,6 +402,10 @@ section {
   .modal-gallery-image { min-height: 190px; }
   .modal-gallery-slide { padding: var(--sp-md); }
   .modal-project-stats { display: grid; grid-template-columns: 1fr; }
+}
+
+@media (max-width: 640px) {
+  .skills-list { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 420px) {
