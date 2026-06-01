@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CTA Buttons Demo</title>
+  <style>
+    :root {
+      --bg: #07111f;
+      --accent: #00e5a0;
+      --accent-dark: #00261a;
+      --text-light: #f8fafc;
+      --radius: 7px;
+      --transition: 220ms cubic-bezier(0.4, 0, 0.2, 1);
+      --glow: rgba(0, 229, 160, 0.25);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      min-height: 100%;
+      margin: 0;
+      font-family: 'Syne', ui-sans-serif, system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text-light);
+    }
+
+    body {
+      display: grid;
+      place-items: center;
+      padding: 40px;
+    }
+
+    .button-row {
+      display: inline-flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 13px 26px;
+      border-radius: var(--radius);
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-decoration: none;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: transform var(--transition), box-shadow var(--transition), color var(--transition), background var(--transition), border-color var(--transition);
+    }
+
+    .cta-button::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      transform: translateX(-100%);
+      opacity: 0;
+      transition: transform 0.45s ease, opacity var(--transition);
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--accent-dark);
+      border: 2px solid var(--accent);
+    }
+
+    .btn-primary::before {
+      background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.35) 45%, rgba(255,255,255,0.55) 50%, rgba(255,255,255,0.35) 55%, transparent 100%);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px var(--glow);
+    }
+
+    .btn-primary:hover::before {
+      transform: translateX(100%);
+      opacity: 1;
+    }
+
+    .btn-primary:active {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(0, 229, 160, 0.16);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--accent);
+      border: 2px solid var(--accent);
+    }
+
+    .btn-outline::before {
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: left center;
+      opacity: 1;
+      transition: transform 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 0;
+    }
+
+    .btn-outline:hover {
+      color: var(--accent-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px var(--glow);
+    }
+
+    .btn-outline:hover::before {
+      transform: scaleX(1);
+    }
+
+    .btn-outline:active {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(0, 229, 160, 0.16);
+    }
+
+    .btn-outline span,
+    .btn-outline svg,
+    .btn-primary svg {
+      position: relative;
+      z-index: 1;
+      transition: color var(--transition), stroke var(--transition);
+    }
+
+    .cta-button svg {
+      width: 17px;
+      height: 17px;
+      stroke-width: 2.2;
+      stroke: currentColor;
+      fill: none;
+      flex-shrink: 0;
+    }
+
+    .screen {
+      text-align: center;
+      max-width: 720px;
+      width: 100%;
+    }
+
+    .screen h1 {
+      margin: 0 0 24px;
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+  </style>
+</head>
+<body>
+  <div class="screen">
+    <h1>Portfolio CTA Buttons</h1>
+    <div class="button-row">
+      <a href="#" class="cta-button btn-primary">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+          <polyline points="7 10 12 15 17 10" />
+          <line x1="12" y1="15" x2="12" y2="3" />
+        </svg>
+        Télécharger CV
+      </a>
+
+      <a href="#projects" class="cta-button btn-outline">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <polyline points="16 18 22 12 16 6" />
+          <polyline points="8 6 2 12 8 18" />
+        </svg>
+        Mes projets
+      </a>
+    </div>
+  </div>
+</body>
+</html>
