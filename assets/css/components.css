@@ -1032,6 +1032,18 @@
     justify-content: center;
   }
 
+  /* Force le wrapper et les boutons Hero à prendre 100% de la largeur sur mobile */
+  .hero-cta-group .btn-hover-wrapper {
+    display: block;
+    width: 100%;
+  }
+
+  .hero-cta-group .btn-primary,
+  .hero-cta-group .btn-outline {
+    width: 100%;
+    justify-content: center;
+  }
+
   .contact-card {
     padding: 1.5rem;
   }
@@ -1505,9 +1517,9 @@
     min-height: auto;
   }
 
+  /* On retire .modal-gallery-controls d'ici pour que les flèches restent alignées horizontalement */
   .project-actions,
-  .modal-actions,
-  .modal-gallery-controls {
+  .modal-actions {
     flex-direction: column;
   }
 
