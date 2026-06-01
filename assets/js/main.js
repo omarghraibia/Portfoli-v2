@@ -45,6 +45,9 @@ class TypingEffect {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Effet scroll de la navbar
+  // TODO: Penser à refactoriser ou optimiser l'affichage mobile
+  // TODO: Isoler la logique des commandes du terminal dans un module séparé si nécessaire
   const siteHeader = document.querySelector('.site-header');
   if (siteHeader) {
     let lastScrollY = window.scrollY;
@@ -147,7 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
       dates: 'Janvier 2026 - Février 2026',
       team: '2 personnes',
       duration: '30 jours',
-      description: 'Solution digitale sur mesure conçue pour moderniser l\'image d\'un cabinet médical et automatiser la prise de rendez-vous.<br><br><strong>Mes Réalisations Clés :</strong><br>• <strong>Back-end :</strong> Modélisation et exploitation d\'une base de données SQL pour structurer les plannings.<br>• <strong>Front-end :</strong> Programmation d\'interfaces dynamiques en JavaScript et design responsive.<br>• <strong>Design & UX :</strong> Création de l\'identité visuelle (logo) avec un focus sur un parcours utilisateur fluide.<br><br><em>Ce projet démontre ma capacité à intervenir sur l\'intégralité d\'un cycle de développement et à livrer un produit technique répondant à un besoin métier réel.</em>',
+      description: 'Projet universitaire réalisé en binôme. Développement d\'un site vitrine avec un système de gestion de rendez-vous pour un cabinet de kinésithérapie. Modélisation de la base de données SQL et intégration des interfaces dynamiques en JavaScript.',
       details: ['Interface responsive', 'Parcours patient simplifié', 'Structure prête pour une prise de rendez-vous'],
       technologies: ['HTML5', 'CSS3', 'JavaScript', 'SQL'],
       gallery: ['Accueil cabinet', 'Parcours rendez-vous', 'Structure front-end'],
