@@ -54,14 +54,15 @@
   outline-offset: 4px;
 }
 
-/* Variantes */
-/* ── Boutons hero ── */
-.btn-primary,
-.btn-outline {
+/* --- CV button --- */
+.btn-primary {
   display: inline-flex;
   align-items: center;
   gap: 9px;
   padding: 13px 26px;
+  background: #00e5a0;
+  color: #00261a;
+  border: 2px solid #00e5a0;
   border-radius: 7px;
   font-family: inherit;
   font-size: 15px;
@@ -72,24 +73,8 @@
   position: relative;
   overflow: hidden;
   transition: background 0.22s cubic-bezier(0.4,0,0.2,1),
-              color      0.22s cubic-bezier(0.4,0,0.2,1),
               transform  0.22s cubic-bezier(0.4,0,0.2,1),
               box-shadow 0.22s cubic-bezier(0.4,0,0.2,1);
-}
-
-.btn-icon {
-  width: 17px;
-  height: 17px;
-  flex-shrink: 0;
-  position: relative;
-  z-index: 1;
-}
-
-/* Solid vert */
-.btn-primary {
-  background: #00e5a0;
-  color: #00261a;
-  border: 2px solid #00e5a0;
 }
 .btn-primary::before {
   content: '';
@@ -106,13 +91,29 @@
   box-shadow: 0 8px 28px rgba(0,229,160,0.28);
 }
 .btn-primary:hover::before { transform: translateX(100%); }
-.btn-primary:active        { transform: translateY(-1px); }
+.btn-primary:active { transform: translateY(-1px); }
 
-/* Outline vert */
+/* --- Projets button --- */
 .btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 13px 26px;
   background: transparent;
   color: #00e5a0;
   border: 2px solid #00e5a0;
+  border-radius: 7px;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  transition: color      0.22s cubic-bezier(0.4,0,0.2,1),
+              transform  0.22s cubic-bezier(0.4,0,0.2,1),
+              box-shadow 0.22s cubic-bezier(0.4,0,0.2,1);
 }
 .btn-outline::before {
   content: '';
@@ -132,7 +133,15 @@
   box-shadow: 0 8px 28px rgba(0,229,160,0.28);
 }
 .btn-outline:hover::before { transform: scaleX(1); }
-.btn-outline:active         { transform: translateY(-1px); }
+.btn-outline:active { transform: translateY(-1px); }
+
+.btn-icon {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
 
 /* Hero group */
 .hero-cta-group {
