@@ -97,6 +97,7 @@
   display: none;
 }
 
+/* --- CV button --- */
 .hero-cta-group .btn-primary {
   display: inline-flex;
   align-items: center;
@@ -118,7 +119,6 @@
               transform  0.22s cubic-bezier(0.4,0,0.2,1),
               box-shadow 0.22s cubic-bezier(0.4,0,0.2,1);
 }
-
 .hero-cta-group .btn-primary::before {
   content: '';
   position: absolute;
@@ -127,17 +127,16 @@
   transform: translateX(-100%);
   transition: transform 0.45s ease;
 }
-
 .hero-cta-group .btn-primary:hover {
   background: #00ffb8;
   border-color: #00ffb8;
   transform: translateY(-3px);
   box-shadow: 0 8px 28px rgba(0,229,160,0.28);
 }
-
 .hero-cta-group .btn-primary:hover::before { transform: translateX(100%); }
 .hero-cta-group .btn-primary:active { transform: translateY(-1px); }
 
+/* --- Projets button --- */
 .hero-cta-group .btn-outline {
   display: inline-flex;
   align-items: center;
@@ -159,7 +158,6 @@
               transform  0.22s cubic-bezier(0.4,0,0.2,1),
               box-shadow 0.22s cubic-bezier(0.4,0,0.2,1);
 }
-
 .hero-cta-group .btn-outline::before {
   content: '';
   position: absolute;
@@ -170,7 +168,6 @@
   transition: transform 0.28s cubic-bezier(0.4,0,0.2,1);
   z-index: 0;
 }
-
 .hero-cta-group .btn-outline span,
 .hero-cta-group .btn-outline svg { position: relative; z-index: 1; }
 .hero-cta-group .btn-outline:hover {
