@@ -183,9 +183,9 @@ document.addEventListener('DOMContentLoaded', () => {
       dates: '2026',
       team: '3 personnes',
       duration: '3 mois',
-      description: 'Refonte institutionnelle pour une ESN avec une cible collégienne. L’objectif était de simplifier la navigation, clarifier l’offre et restituer une image professionnelle tout en restant accessible et sobre.',
-      details: ['UX claire pour collégiens', 'Sobriété numérique', 'Prototypage front-end'],
-      technologies: ['UI/UX Design', 'Sobriété numérique', 'Front-End', 'Prototype'],
+      description: 'Conception d’un site web institutionnel éco-responsable visant à vulgariser les activités de l’ESN Inetum à destination de la Génération Alpha. Ce projet universitaire démontre ma capacité à analyser un besoin client spécifique, à collaborer en équipe, et à appliquer les principes du Green IT dans le cycle de développement d’une application web.',
+      details: ['Analyse & Vulgarisation', 'Design & Éco-conception', 'Développement Front-end'],
+      technologies: ['UI/UX Design', 'Sobriété numérique', 'Front-End', 'Prototypage'],
       gallery: ['Page d’accueil', 'Sections services', 'Prototype responsive'],
       codeLink: 'https://github.com/D-Inetum/SAE-1.05-06',
       liveLink: '#'
