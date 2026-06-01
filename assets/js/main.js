@@ -379,12 +379,6 @@ document.addEventListener('DOMContentLoaded', () => {
     messageInput.addEventListener('input', () => {
       const currentLength = messageInput.value.length;
       charCount.textContent = currentLength;
-      
-      if (currentLength >= 500) {
-        charCount.parentElement.style.color = '#ef4444'; // passe rouge si limite atteinte
-      } else {
-        charCount.parentElement.style.color = ''; // reset couleur
-      }
     });
   }
 
