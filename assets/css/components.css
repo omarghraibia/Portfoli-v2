@@ -640,7 +640,7 @@
   margin: 0;
   padding: 18px;
   background: var(--ide-bg, #0f172a);  
-  color: var(--ide-text, #e2e8f0);    
+  color: var(--ide-text, #e2e8f0);     
   overflow-x: auto;
   overflow-y: hidden;
   flex: 1;
@@ -649,7 +649,6 @@
   line-height: 1.45;
   min-height: 200px;
 }
-
 .editor-code .keyword {
   color: var(--accent-color-hover);
   font-weight: 600;

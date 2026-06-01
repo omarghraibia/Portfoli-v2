@@ -95,10 +95,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const typer = new TypingEffect('code-editor', originalContent, 20);
 
     const ideObserver = new IntersectionObserver((entries) => {
-      if (entries[0].isIntersecting) {
-        setTimeout(() => typer.start(), 300);
-        ideObserver.disconnect();
-      }
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setTimeout(() => typer.start(), 300);
+          ideObserver.disconnect();
+        }
+      });
     }, { threshold: 0.3 });
 
     const skillsSection = document.getElementById('skills');
