@@ -157,16 +157,19 @@ document.addEventListener('DOMContentLoaded', () => {
    'allo-kine': {
       title: 'Allo Kiné',
       period: '2026',
-      dates: 'Janvier 2026 - Mars 2026',
+      dates: 'Février 2026 - Avril 2026',
       team: '1 personne',
       duration: '60 jours',
       description: 'Développement d\'une solution digitale sur mesure pour le cabinet de kinésithérapie de mon père. Ce projet personnel m\'a permis de gérer l\'intégralité de la création d\'un outil métier concret pour moderniser son activité et faciliter la gestion de ses patients.<br><br><strong>Mes réalisations :</strong><br>• Modélisation de la base de données SQL pour les plannings.<br>• Intégration des interfaces dynamiques en JavaScript.<br>• Création de l\'identité visuelle (logo) et optimisation du parcours utilisateur (UX).',
       details: ['Interface responsive', 'Parcours patient simplifié', 'Structure prête pour une prise de rendez-vous'],
       technologies: ['HTML5', 'CSS3', 'JavaScript', 'SQL'],
       gallery: [
-        { src: 'assets/img/projects/allo-kine-1.jpg', caption: 'Accueil du cabinet' },
-        { src: 'assets/img/projects/allo-kine-2.jpg', caption: 'Parcours rendez-vous' },
-        { src: 'assets/img/projects/allo-kine-3.jpg', caption: 'Structure front-end' }
+        { src: 'assets/allokine/Accueil.png', },
+        { src: 'assets/allokine/avis.png',},
+        { src: 'assets/allokine/connexion.png',},
+        { src: 'assets/allokine/contact.png',}
+        { src: 'assets/allokine/Galerie.png',}
+        { src: 'assets/allokine/Tarifs.png',}
       ],
       codeLink: 'https://github.com/omarghraibia/allokine',
       liveLink: 'https://allokine.vercel.app/'
