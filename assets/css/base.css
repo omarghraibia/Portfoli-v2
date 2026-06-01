@@ -42,14 +42,6 @@
   --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.33);
 }
 
-[data-theme="red-team"] {
-  --accent-color: #ef4444;
-  --accent-color-hover: #f87171;
-  --glow-shadow: rgba(239, 68, 68, 0.24);
-  --bg-highlight: rgba(239, 68, 68, 0.08);
-  --section-gradient: radial-gradient(circle at top left, rgba(239, 68, 68, 0.08), transparent 34%);
-}
-
 @media (max-width: 640px) {
   :root {
     --fs-h1: clamp(2.4rem, 14vw, 3.2rem);
@@ -171,4 +163,3 @@ code {
   border-radius: 3px;
   font-size: 0.9em;
 }
-
