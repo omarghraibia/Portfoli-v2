@@ -87,32 +87,13 @@
   flex-wrap: wrap;
 }
 
-.hero-cta-group .btn-hover-wrapper {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  vertical-align: middle;
-}
-
 .hero-cta-group .btn {
+  display: inline-flex;
   flex-direction: row !important;
   align-items: center !important;
-}
-
-/* Hero buttons custom style override */
-.hero-cta-group .btn::after {
-  display: none;
-}
-
-/* --- CV button --- */
-.hero-cta-group .btn-primary {
-  display: inline-flex;
-  align-items: center;
+  justify-content: center;
   gap: 9px;
   padding: 13px 26px;
-  background: #00e5a0;
-  color: #00261a;
-  border: 2px solid #00e5a0;
   border-radius: 7px;
   font-family: inherit;
   font-size: 15px;
@@ -123,67 +104,60 @@
   position: relative;
   overflow: hidden;
   transition: background 0.22s cubic-bezier(0.4,0,0.2,1),
+              color      0.22s cubic-bezier(0.4,0,0.2,1),
               transform  0.22s cubic-bezier(0.4,0,0.2,1),
               box-shadow 0.22s cubic-bezier(0.4,0,0.2,1);
 }
-.hero-cta-group .btn-primary::before {
+
+.hero-cta-group .btn::before {
   content: '';
   position: absolute;
   inset: 0;
+  transform: translateX(0);
+  transition: transform 0.45s ease, opacity 0.22s ease;
+}
+
+.hero-cta-group .btn-primary {
+  background: #00e5a0;
+  color: #00261a;
+  border: 2px solid #00e5a0;
+}
+.hero-cta-group .btn-primary::before {
   background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.22) 50%, transparent 60%);
   transform: translateX(-100%);
-  transition: transform 0.45s ease;
 }
-.hero-cta-group .btn-hover-wrapper:hover .btn-primary {
+.hero-cta-group .btn-primary:hover {
   background: #00ffb8;
   border-color: #00ffb8;
   transform: translateY(-3px);
   box-shadow: 0 8px 28px rgba(0,229,160,0.28);
 }
-.hero-cta-group .btn-hover-wrapper:hover .btn-primary::before { transform: translateX(100%); }
-.hero-cta-group .btn-hover-wrapper:active .btn-primary { transform: translateY(-1px); }
+.hero-cta-group .btn-primary:hover::before { transform: translateX(100%); }
+.hero-cta-group .btn-primary:active { transform: translateY(-1px); }
 
-/* --- Projets button --- */
 .hero-cta-group .btn-outline {
-  display: inline-flex;
-  align-items: center;
-  gap: 9px;
-  padding: 13px 26px;
   background: transparent;
   color: #00e5a0;
   border: 2px solid #00e5a0;
-  border-radius: 7px;
-  font-family: inherit;
-  font-size: 15px;
-  font-weight: 700;
-  letter-spacing: 0.03em;
-  cursor: pointer;
-  text-decoration: none;
-  position: relative;
-  overflow: hidden;
-  transition: color      0.22s cubic-bezier(0.4,0,0.2,1),
-              transform  0.22s cubic-bezier(0.4,0,0.2,1),
-              box-shadow 0.22s cubic-bezier(0.4,0,0.2,1);
 }
 .hero-cta-group .btn-outline::before {
-  content: '';
-  position: absolute;
-  inset: 0;
   background: #00e5a0;
   transform: scaleX(0);
   transform-origin: left center;
-  transition: transform 0.28s cubic-bezier(0.4,0,0.2,1);
-  z-index: 0;
 }
-.hero-cta-group .btn-outline span,
-.hero-cta-group .btn-outline svg { position: relative; z-index: 1; }
-.hero-cta-group .btn-hover-wrapper:hover .btn-outline {
+.hero-cta-group .btn-outline:hover {
   color: #00261a;
   transform: translateY(-3px);
   box-shadow: 0 8px 28px rgba(0,229,160,0.28);
 }
-.hero-cta-group .btn-hover-wrapper:hover .btn-outline::before { transform: scaleX(1); }
-.hero-cta-group .btn-hover-wrapper:active .btn-outline { transform: translateY(-1px); }
+.hero-cta-group .btn-outline:hover::before { transform: scaleX(1); }
+.hero-cta-group .btn-outline:active { transform: translateY(-1px); }
+
+.hero-cta-group .btn-outline svg,
+.hero-cta-group .btn-primary svg {
+  position: relative;
+  z-index: 1;
+}
 
 .hero-cta-group .btn-icon {
   width: 17px;
@@ -1037,12 +1011,6 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-  }
-
-  /* Force le wrapper et les boutons Hero à prendre 100% de la largeur sur mobile */
-  .hero-cta-group .btn-hover-wrapper {
-    display: block;
-    width: 100%;
   }
 
   .hero-cta-group .btn-primary,
