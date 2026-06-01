@@ -264,19 +264,35 @@ section {
   gap: 1.5rem; 
 }
 
-.skills-container { 
+ .skills-container { 
   display: grid; 
-  grid-template-columns: minmax(280px, 1.15fr) minmax(320px, 0.85fr); 
+  grid-template-columns: 1fr 1fr; 
   gap: var(--sp-xl); 
-  align-items: stretch; 
+  align-items: start;  
   padding: 0 var(--sp-lg); 
 }
 
-.skills-list { 
+ .skills-list { 
   display: grid; 
-  gap: var(--sp-lg); 
+  grid-template-columns: repeat(2, 1fr); 
+  gap: var(--sp-md); 
 }
 
+ .editor {
+  min-width: 0; 
+}
+
+ @media (max-width: 1024px) {
+  .skills-container { 
+    grid-template-columns: 1fr;  
+  }
+}
+
+@media (max-width: 640px) {
+  .skills-list { 
+    grid-template-columns: 1fr;  
+  }
+}
 #projects { 
   position: relative; 
   z-index: 10; 
