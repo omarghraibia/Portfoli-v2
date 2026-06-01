@@ -368,66 +368,6 @@ document.addEventListener('DOMContentLoaded', () => {
     contactLink.addEventListener('touchstart', buildLink, {passive: true});
     contactLink.addEventListener('focus', buildLink);
   });
-
-  const terminalOverlay = document.getElementById('terminal-overlay');
-  const terminalInput = document.getElementById('terminal-input');
-  const terminalOutput = document.getElementById('terminal-output');
-  const terminalBody = document.getElementById('terminal-body');
-  const terminalClose = document.getElementById('terminal-close');
-
-  if (terminalOverlay && terminalInput) {
-    const openTerminal = () => {
-      terminalOverlay.classList.remove('hidden');
-      setTimeout(() => {
-        terminalOverlay.classList.add('active');
-        terminalInput.focus();
-      }, 10);
-    };
-
-    const closeTerminal = () => {
-      terminalOverlay.classList.remove('active');
-      setTimeout(() => terminalOverlay.classList.add('hidden'), 300);
-    };
-
-    document.addEventListener('keydown', (e) => {
-      if ((e.ctrlKey && e.altKey && e.key.toLowerCase() === 't') || e.key === '~' || e.key === '²') {
-        e.preventDefault();
-        terminalOverlay.classList.contains('active') ? closeTerminal() : openTerminal();
-      }
-    });
-
-    terminalClose.addEventListener('click', closeTerminal);
-    terminalOverlay.addEventListener('click', (e) => { if (e.target === terminalOverlay) closeTerminal(); });
-    terminalBody.addEventListener('click', () => terminalInput.focus()); // Maintient le focus dans l'input
-
-    const terminalCommands = {
-      help: () => `Commandes disponibles :<br>- <strong>whoami</strong> : En savoir plus sur moi<br>- <strong>skills</strong> : Mes compétences techniques<br>- <strong>projects</strong> : Afficher mes projets récents<br>- <strong>clear</strong> : Effacer l'écran<br>- <strong>exit</strong> : Fermer le terminal<br>- <strong>sudo</strong> : (Accès administrateur)`,
-      whoami: () => `<strong>Omar Ghraybia</strong><br>Développeur d'Applications & Étudiant en BUT Informatique.`,
-      skills: () => `[+] Java, JavaScript, HTML/CSS<br>[+] SQL, PostgreSQL<br>[+] Linux, Debian, Administration Système`,
-      projects: () => `1. Allo Kiné<br>2. Le Tourmentin<br>Fermez le terminal pour voir les détails !`,
-      sudo: () => `<span class="error">omar is not in the sudoers file. This incident will be reported.</span>`,
-      clear: () => { terminalOutput.innerHTML = ''; return ''; },
-      exit: () => { closeTerminal(); return 'Fermeture...'; }
-    };
-
-    terminalInput.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter') {
-        const cmd = terminalInput.value.trim().toLowerCase();
-        if (cmd) {
-          terminalOutput.innerHTML += `<p><span class="prompt">omar@portfolio:~$</span> ${cmd}</p>`;
-          
-          if (terminalCommands[cmd]) {
-            const response = typeof terminalCommands[cmd] === 'function' ? terminalCommands[cmd]() : terminalCommands[cmd];
-            if (response) terminalOutput.innerHTML += `<p>${response}</p>`;
-          } else {
-            terminalOutput.innerHTML += `<p class="error">bash: ${cmd}: command not found. Tapez 'help' pour les commandes disponibles.</p>`;
-          }
-        }
-        terminalInput.value = '';
-        terminalBody.scrollTop = terminalBody.scrollHeight;
-      }
-    });
-  }
 });
 
 if (typeof module !== 'undefined' && module.exports) {
