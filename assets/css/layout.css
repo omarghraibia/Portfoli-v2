@@ -158,7 +158,7 @@ section {
     radial-gradient(circle at 24% 24%, rgba(16, 185, 129, 0.16), transparent 24%),
     radial-gradient(circle at 78% 15%, rgba(255, 255, 255, 0.06), transparent 18%);
   pointer-events: none;
-  z-index: 1;
+  z-index: 2;
 }
 
 .hero-section::after {
@@ -167,13 +167,13 @@ section {
   inset: 0;
   background: rgba(11, 17, 32, 0.58);
   pointer-events: none;
-  z-index: 2;
+  z-index: 3;
 }
 
 .video-background { 
   position: absolute; 
   inset: 0; 
-  z-index: 0; 
+  z-index: 1; 
   pointer-events: none; 
 }
 
@@ -185,6 +185,8 @@ section {
 }
 
 .hero-section .container { 
+  position: relative; /* Indispensable pour que le z-index fonctionne */
+  z-index: 10; 
   padding: clamp(6rem, 12vh, 9rem) var(--sp-lg) calc(var(--sp-xl) + 3rem); 
   max-width: 1280px; 
   width: 100%; 
@@ -343,10 +345,6 @@ section {
   from { transform: translate3d(0, 0, 0); } 
   to { transform: translate3d(-80px, 80px, 0); } 
 }
-
-/* ==========================================================================
-   Media Queries
-   ========================================================================== */
 
 @media (max-width: 1024px) {
   .header-inner { gap: var(--sp-md); }
