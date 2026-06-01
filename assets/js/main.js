@@ -45,9 +45,7 @@ class TypingEffect {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Effet scroll de la navbar
-  // TODO: Penser à refactoriser ou optimiser l'affichage mobile
-  // TODO: Isoler la logique des commandes du terminal dans un module séparé si nécessaire
+  
   const siteHeader = document.querySelector('.site-header');
   if (siteHeader) {
     let lastScrollY = window.scrollY;
@@ -91,12 +89,24 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   const codeEditor = document.getElementById('code-editor');
-
   if (codeEditor) {
-    const originalContent = codeEditor.innerHTML;
+    const originalContent = codeEditor.innerHTML.trim();
     codeEditor.innerHTML = '';
-    const typer = new TypingEffect('code-editor', originalContent, 30);
-    setTimeout(() => typer.start(), 500);
+    const typer = new TypingEffect('code-editor', originalContent, 20);
+
+    const ideObserver = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        setTimeout(() => typer.start(), 300);
+        ideObserver.disconnect();
+      }
+    }, { threshold: 0.3 });
+
+    const skillsSection = document.getElementById('skills');
+    if (skillsSection) {
+      ideObserver.observe(skillsSection);
+    } else {
+      ideObserver.observe(codeEditor);
+    }
   }
 
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -138,10 +148,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  const closeSuccessModal = () => closeModal(successModal);
-
-  successClose?.addEventListener('click', closeSuccessModal);
-  successOverlay?.addEventListener('click', closeSuccessModal);
+  successClose?.addEventListener('click', () => closeModal(successModal));
+  successOverlay?.addEventListener('click', () => closeModal(successModal));
 
   const projectData = {
     'allo-kine': {
@@ -150,7 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
       dates: 'Janvier 2026 - Février 2026',
       team: '2 personnes',
       duration: '30 jours',
-      description: 'Projet universitaire réalisé en binôme. Développement d\'un site vitrine avec un système de gestion de rendez-vous pour un cabinet de kinésithérapie. Modélisation de la base de données SQL et intégration des interfaces dynamiques en JavaScript.',
+      description: 'Projet universitaire réalisé en binôme. Développement d\'un site vitrine couplé à un système de gestion de rendez-vous pour un cabinet de kinésithérapie.<br><br><strong>Mes tâches :</strong><br>• Modélisation de la base de données SQL pour les plannings.<br>• Intégration des interfaces dynamiques en JavaScript.<br>• Création du logo et du parcours utilisateur (UX).',
       details: ['Interface responsive', 'Parcours patient simplifié', 'Structure prête pour une prise de rendez-vous'],
       technologies: ['HTML5', 'CSS3', 'JavaScript', 'SQL'],
       gallery: ['Accueil cabinet', 'Parcours rendez-vous', 'Structure front-end'],
@@ -160,10 +168,10 @@ document.addEventListener('DOMContentLoaded', () => {
     'inetum': {
       title: 'Inetum',
       period: '2026',
-      dates: '2026',
+      dates: 'Février 2026 - Avril 2026',
       team: '3 personnes',
       duration: '3 mois',
-      description: 'Conception d’un site web institutionnel éco-responsable visant à vulgariser les activités de l’ESN Inetum à destination de la Génération Alpha. Ce projet universitaire démontre ma capacité à analyser un besoin client spécifique, à collaborer en équipe, et à appliquer les principes du Green IT dans le cycle de développement d’une application web.',
+      description: 'Conception d’un site web institutionnel éco-responsable visant à vulgariser les activités de l’ESN Inetum à destination de la Génération Alpha. Le but était d\'appliquer les principes du Green IT tout en proposant un design attrayant.',
       details: ['Analyse & Vulgarisation', 'Design & Éco-conception', 'Développement Front-end'],
       technologies: ['UI/UX Design', 'Sobriété numérique', 'Front-End', 'Prototypage'],
       gallery: ['Page d’accueil', 'Sections services', 'Prototype responsive'],
@@ -176,7 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
       dates: 'Avril 2024 - Juin 2024',
       team: '4 personnes',
       duration: '60 jours',
-      description: 'Projet de modélisation d’un système d’information avec analyse du besoin, schémas UML et conception SQL. Le but était de transformer un contexte métier en modèle de données exploitable.',
+      description: 'Projet de modélisation d’un système d’information basé sur des besoins client. Conception des schémas UML et réalisation du dictionnaire de données SQL.',
       details: ['Analyse fonctionnelle', 'Schémas UML', 'Modèle relationnel SQL'],
       technologies: ['SQL', 'UML', 'Modélisation'],
       gallery: ['Diagramme UML', 'Modèle SQL', 'Analyse métier'],
@@ -189,8 +197,8 @@ document.addEventListener('DOMContentLoaded', () => {
       dates: 'Mai 2026',
       team: '1 personne',
       duration: '20 jours',
-      description: 'Portfolio personnel conçu comme une vitrine technique : interface dark premium, sections projet lisibles, modals détaillées, animations CSS et structure responsive.',
-      details: ['Dark mode premium', 'Glassmorphism', 'Interactions JavaScript'],
+      description: 'Portfolio technique. Interface dark mode, système de fenêtres modales avec données dynamiques, animations CSS et structure complètement responsive.',
+      details: ['Dark mode', 'Glassmorphism', 'Logique JavaScript (Event Delegation)'],
       technologies: ['HTML5', 'CSS3', 'JavaScript'],
       gallery: ['Hero animé', 'Cartes projets', 'Modals détaillées'],
       codeLink: '#',
@@ -212,8 +220,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }, 10);
   };
-
-  const closeProjectModal = () => closeModal(projectModal);
 
   const bindGalleryControls = () => {
     const gallery = modalBody?.querySelector('.modal-gallery-track');
@@ -277,8 +283,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  modalClose?.addEventListener('click', closeProjectModal);
-  modalOverlay?.addEventListener('click', closeProjectModal);
+  modalClose?.addEventListener('click', () => closeModal(projectModal));
+  modalOverlay?.addEventListener('click', () => closeModal(projectModal));
 
   document.addEventListener('keydown', event => {
     if (event.key === 'Escape') {
@@ -325,17 +331,12 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', updateActiveNavLink);
   updateActiveNavLink();
 
-  const observerOptions = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.15
-  };
-
+  const observerOptions = { root: null, rootMargin: '0px', threshold: 0.15 };
   const observer = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('is-visible');
-        observer.unobserve(entry.target);
+        observer.unobserve(entry.target); 
       }
     });
   }, observerOptions);
@@ -349,8 +350,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
   if (messageInput && charCount) {
     messageInput.addEventListener('input', () => {
-      const currentLength = messageInput.value.length;
-      charCount.textContent = currentLength;
+      charCount.textContent = messageInput.value.length;
     });
   }
 
