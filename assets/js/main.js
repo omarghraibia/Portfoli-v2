@@ -177,6 +177,19 @@ document.addEventListener('DOMContentLoaded', () => {
       codeLink: 'https://github.com',
       liveLink: '#'
     },
+    'inetum': {
+      title: 'Inetum',
+      period: '2026',
+      dates: '2026',
+      team: '3 personnes',
+      duration: '3 mois',
+      description: 'Refonte institutionnelle pour une ESN avec une cible collégienne. L’objectif était de simplifier la navigation, clarifier l’offre et restituer une image professionnelle tout en restant accessible et sobre.',
+      details: ['UX claire pour collégiens', 'Sobriété numérique', 'Prototypage front-end'],
+      technologies: ['UI/UX Design', 'Sobriété numérique', 'Front-End', 'Prototype'],
+      gallery: ['Page d’accueil', 'Sections services', 'Prototype responsive'],
+      codeLink: 'https://github.com/D-Inetum/SAE-1.05-06',
+      liveLink: '#'
+    },
     'tourmentin': {
       title: 'Le Tourmentin',
       period: '2024',

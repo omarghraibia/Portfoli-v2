@@ -1488,9 +1488,14 @@
   }
 
   .project-actions,
-  .modal-actions,
-  .modal-gallery-controls {
+  .modal-actions {
     flex-direction: column;
+  }
+
+  .modal-gallery-controls {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
   }
 
   .modal {
