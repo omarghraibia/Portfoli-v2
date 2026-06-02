@@ -38,7 +38,7 @@
     "codeLink": "https://github.com/D-Inetum/SAE-1.05-06",
     "liveLink": "https://inetum-apoa0127m-omar-s-projects-5cbfe118.vercel.app"
   },
-  "morpion": {
+  "Morpion": {
     "title":"Morpion XO",
     "description":"Mini-jeu de Morpion jouable dans le navigateur. Mode deux joueurs et mode contre l'ordinateur avec trois niveaux de difficulté (algorithme Minimax). Interface développée entièrement en vanilla JavaScript sans bibliothèque externe.",
     "technologies": [
