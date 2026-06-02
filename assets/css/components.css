@@ -12,11 +12,12 @@
   cursor: pointer;
 }
 
-.btn, .btn-inner {
+.btn,
+.btn-inner {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;  
+  gap: 10px;
 }
 
 .btn svg {
@@ -60,6 +61,7 @@
   color: #e2e8f0;
   text-align: center;
 }
+
 .btn-code:hover {
   background: #334155;
 }
@@ -69,6 +71,7 @@
   color: #0f172a;
   text-align: center;
 }
+
 .btn-demo:hover {
   background: #f8fafc;
 }
@@ -315,19 +318,19 @@
   .skills-grid-2d {
     grid-template-columns: 1fr;
   }
-  
+
   .project-actions {
     grid-template-columns: 1fr;
   }
-  
+
   .hero-cta-group {
     flex-direction: column;
   }
-  
+
   .btn {
     width: 100%;
   }
-  
+
   .single-column-modal {
     padding: 1.5rem;
   }

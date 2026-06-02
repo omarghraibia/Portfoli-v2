@@ -79,13 +79,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // generation des boutons
     const actionsDiv = document.createElement('div');
     actionsDiv.className = 'modal-actions-row';
-    
+
     const btnCode = document.createElement('a');
     btnCode.href = projet.codeLink;
     btnCode.className = 'btn btn-code';
     btnCode.textContent = 'Code source';
     btnCode.target = '_blank';
-    
+
     const btnDemo = document.createElement('a');
     btnDemo.href = projet.liveLink;
     btnDemo.className = 'btn btn-demo';
