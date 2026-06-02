@@ -122,7 +122,26 @@ document.addEventListener('DOMContentLoaded', () => {
       codeLink: 'https://github.com/D-Inetum/SAE-1.05-06',
       liveLink: 'https://inetum-apoa0127m-omar-s-projects-5cbfe118.vercel.app'
     },
-  };
+    {
+  'morpion': {
+    'title': 'Morpion XO',
+    'period': '2026',
+    'dates': 'avril 2026',
+    'team': '1 personne',
+    'duration': '1 semaine',
+    'description': 'Mini-jeu de Morpion (Tic-Tac-Toe) jouable dans le navigateur. Mode deux joueurs et mode contre le robot avec trois niveaux de difficulté. Interface Flat Dark avec choix de thèmes et personnalisation des noms de joueurs. Développé en vanilla JavaScript sans bibliothèque externe.',
+    'details': ['Jeu de société', 'Intelligence artificielle simple', 'Design responsive'],
+    'technologies': ['HTML5', 'CSS3', 'JavaScript', 'Minimax'],
+    'gallery': [
+      { 'src': 'assets/morpion/acceuil 1v1.png' },
+      { 'src': 'assets/morpion/fin partie 1V1.png' },
+      { 'src': 'assets/morpion/fin vs robot.png' },
+      { 'src': 'assets/morpion/VS ROBOT.png' }
+    ],
+    'codeLink': 'https://github.com/omarghraibia/MORPION-XO-Omar-Ghraibia',
+    'liveLink': 'https://morpion-xo-omar-ghraibia.vercel.app'
+  },
+};
 
   const openModal = (modal) => {
     if (!modal) return;
