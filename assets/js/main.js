@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
     gallery: ["assets/morpion/acceuil 1v1.png"],
     codeLink: "https://github.com/omarghraibia/MORPION-XO-Omar-Ghraibia",
     liveLink: "https://morpion-xo-omar-ghraibia.vercel.app"
-    }
+    }?
   };
 
   // 3. Gestion de la modale 
