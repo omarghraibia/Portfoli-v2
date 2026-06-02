@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }, { threshold: 0.1 });
 
-    ideObserver.observe(codeEditor); 
+    ideObserver.observe(codeEditor);
   }
 
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -158,12 +158,12 @@ document.addEventListener('DOMContentLoaded', () => {
       details: ['Interface responsive', 'Parcours patient simplifié', 'Structure prête pour une prise de rendez-vous'],
       technologies: ['HTML5', 'CSS3', 'JavaScript', 'SQL'],
       gallery: [
-        { src: 'assets/allokine/Accueil.png',},
-        { src: 'assets/allokine/avis.png',},
-        { src: 'assets/allokine/connexion.png',},
-        { src: 'assets/allokine/contact.png',},
-        { src: 'assets/allokine/Galerie.png',},
-        { src: 'assets/allokine/Tarifs.png',}
+        { src: 'assets/allokine/Accueil.png', },
+        { src: 'assets/allokine/avis.png', },
+        { src: 'assets/allokine/connexion.png', },
+        { src: 'assets/allokine/contact.png', },
+        { src: 'assets/allokine/Galerie.png', },
+        { src: 'assets/allokine/Tarifs.png', }
       ],
       codeLink: 'https://github.com/omarghraibia/allokine',
       liveLink: 'https://allokine.vercel.app/'
@@ -215,7 +215,7 @@ document.addEventListener('DOMContentLoaded', () => {
     activeModal = modal;
     modal.classList.add('active');
     modal.setAttribute('aria-hidden', 'false');
-    
+
     setTimeout(() => {
       const focusable = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
       if (focusable.length) {
@@ -250,22 +250,22 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="modal-media-full">
           <div class="modal-gallery-track" aria-label="Galerie du projet ${project.title}">
             ${project.gallery.map((item, index) => {
-              if (typeof item === 'object') {
-                return `
+        if (typeof item === 'object') {
+          return `
                   <figure class="modal-gallery-slide">
                     <div class="modal-gallery-image" style="padding:0; overflow:hidden;">
                       <img src="${item.src}" alt="${item.caption}" loading="lazy" style="width:100%; height:100%; object-fit:cover; display:block;" />
                     </div>
                   </figure>
                 `;
-              } else {
-                return `
+        } else {
+          return `
                   <figure class="modal-gallery-slide">
                     <div class="modal-gallery-image">${String(index + 1).padStart(2, '0')}</div>
                   </figure>
                 `;
-              }
-            }).join('')}
+        }
+      }).join('')}
           </div>
           <div class="modal-gallery-controls">
             <button type="button" class="btn-icon" data-gallery="previous" aria-label="Image précédente">
@@ -305,14 +305,14 @@ document.addEventListener('DOMContentLoaded', () => {
       if (activeModal) closeModal(activeModal);
       return;
     }
-    
+
     if (event.key === 'Tab' && activeModal) {
       const focusable = activeModal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
       if (!focusable.length) return;
-      
+
       const firstElement = focusable[0];
       const lastElement = focusable[focusable.length - 1];
-      
+
       if (event.shiftKey && document.activeElement === firstElement) {
         event.preventDefault();
         lastElement.focus();
@@ -350,7 +350,7 @@ document.addEventListener('DOMContentLoaded', () => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('is-visible');
-        observer.unobserve(entry.target); 
+        observer.unobserve(entry.target);
       }
     });
   }, observerOptions);
@@ -361,7 +361,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const messageInput = document.getElementById('message');
   const charCount = document.getElementById('char-count');
-  
+
   if (messageInput && charCount) {
     messageInput.addEventListener('input', () => {
       charCount.textContent = messageInput.value.length;
@@ -373,7 +373,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const user = contactLink.getAttribute('data-user');
       const domain = contactLink.getAttribute('data-domain');
       const phone = contactLink.getAttribute('data-phone');
-      
+
       if (user && domain && contactLink.getAttribute('href') === '#') {
         contactLink.setAttribute('href', `mailto:${user}@${domain}`);
       } else if (phone && contactLink.getAttribute('href') === '#') {
@@ -382,7 +382,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     contactLink.addEventListener('mouseenter', buildLink);
-    contactLink.addEventListener('touchstart', buildLink, {passive: true});
+    contactLink.addEventListener('touchstart', buildLink, { passive: true });
     contactLink.addEventListener('focus', buildLink);
   });
 });
