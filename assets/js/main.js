@@ -1,49 +1,3 @@
-class TypingEffect {
-  constructor(elementId, text, speed = 50) {
-    this.element = document.getElementById(elementId);
-    this.text = text;
-    this.speed = speed;
-    this.currentIndex = 0;
-    this.isTyping = false;
-  }
-
-  start() {
-    if (this.isTyping || !this.element) return;
-    this.isTyping = true;
-    this.type();
-  }
-
-  type() {
-    if (this.currentIndex < this.text.length) {
-      const char = this.text[this.currentIndex];
-
-      if (char === '<') {
-        const closingIndex = this.text.indexOf('>', this.currentIndex);
-        const tag = this.text.substring(this.currentIndex, closingIndex + 1);
-        this.element.innerHTML += tag;
-        this.currentIndex = closingIndex + 1;
-      } else if (char === '\n') {
-        this.element.innerHTML += '<br>';
-        this.currentIndex++;
-      } else {
-        this.element.innerHTML += char;
-        this.currentIndex++;
-      }
-
-      setTimeout(() => this.type(), this.speed);
-    } else {
-      this.isTyping = false;
-    }
-  }
-
-  reset() {
-    if (!this.element) return;
-    this.currentIndex = 0;
-    this.element.innerHTML = '';
-    this.isTyping = false;
-  }
-}
-
 document.addEventListener('DOMContentLoaded', () => {
   const siteHeader = document.querySelector('.site-header');
   if (siteHeader) {
@@ -85,24 +39,6 @@ document.addEventListener('DOMContentLoaded', () => {
         hamburger.setAttribute('aria-expanded', 'false');
       });
     });
-  }
-
-  const codeEditor = document.getElementById('code-editor');
-  if (codeEditor) {
-    const originalContent = codeEditor.innerHTML.trim();
-    codeEditor.innerHTML = '';
-    const typer = new TypingEffect('code-editor', originalContent, 20);
-
-    const ideObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          setTimeout(() => typer.start(), 300);
-          ideObserver.disconnect();
-        }
-      });
-    }, { threshold: 0.1 });
-
-    ideObserver.observe(codeEditor);
   }
 
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -158,12 +94,12 @@ document.addEventListener('DOMContentLoaded', () => {
       details: ['Interface responsive', 'Parcours patient simplifié', 'Structure prête pour une prise de rendez-vous'],
       technologies: ['HTML5', 'CSS3', 'JavaScript', 'SQL'],
       gallery: [
-        { src: 'assets/allokine/Accueil.png', },
-        { src: 'assets/allokine/avis.png', },
-        { src: 'assets/allokine/connexion.png', },
-        { src: 'assets/allokine/contact.png', },
-        { src: 'assets/allokine/Galerie.png', },
-        { src: 'assets/allokine/Tarifs.png', }
+        { src: 'assets/allokine/Accueil.png' },
+        { src: 'assets/allokine/avis.png' },
+        { src: 'assets/allokine/connexion.png' },
+        { src: 'assets/allokine/contact.png' },
+        { src: 'assets/allokine/Galerie.png' },
+        { src: 'assets/allokine/Tarifs.png' }
       ],
       codeLink: 'https://github.com/omarghraibia/allokine',
       liveLink: 'https://allokine.vercel.app/'
@@ -181,32 +117,6 @@ document.addEventListener('DOMContentLoaded', () => {
       codeLink: 'https://github.com/D-Inetum/SAE-1.05-06',
       liveLink: '#'
     },
-    'tourmentin': {
-      title: 'Le Tourmentin',
-      period: '2024',
-      dates: 'Avril 2024 - Juin 2024',
-      team: '4 personnes',
-      duration: '60 jours',
-      description: 'Projet de modélisation d’un système d’information basé sur des besoins client. Conception des schémas UML et réalisation du dictionnaire de données SQL.',
-      details: ['Analyse fonctionnelle', 'Schémas UML', 'Modèle relationnel SQL'],
-      technologies: ['SQL', 'UML', 'Modélisation'],
-      gallery: ['Diagramme UML', 'Modèle SQL', 'Analyse métier'],
-      codeLink: '#',
-      liveLink: '#'
-    },
-    portfolio: {
-      title: 'This Portfolio',
-      period: '2026',
-      dates: 'Mai 2026',
-      team: '1 personne',
-      duration: '20 jours',
-      description: 'Portfolio technique. Interface dark mode, système de fenêtres modales avec données dynamiques, animations CSS et structure complètement responsive.',
-      details: ['Dark mode', 'Glassmorphism', 'Logique JavaScript (Event Delegation)'],
-      technologies: ['HTML5', 'CSS3', 'JavaScript'],
-      gallery: ['Hero animé', 'Cartes projets', 'Modals détaillées'],
-      codeLink: '#',
-      liveLink: '#'
-    }
   };
 
   const openModal = (modal) => {
@@ -254,7 +164,7 @@ document.addEventListener('DOMContentLoaded', () => {
           return `
                   <figure class="modal-gallery-slide">
                     <div class="modal-gallery-image" style="padding:0; overflow:hidden;">
-                      <img src="${item.src}" alt="${item.caption}" loading="lazy" style="width:100%; height:100%; object-fit:cover; display:block;" />
+                      <img src="${item.src}" alt="Image du projet" loading="lazy" style="width:100%; height:100%; object-fit:cover; display:block;" />
                     </div>
                   </figure>
                 `;
@@ -386,7 +296,3 @@ document.addEventListener('DOMContentLoaded', () => {
     contactLink.addEventListener('focus', buildLink);
   });
 });
-
-if (typeof module !== 'undefined' && module.exports) {
-  module.exports = TypingEffect;
-}
