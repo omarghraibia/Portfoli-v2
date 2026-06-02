@@ -2,7 +2,12 @@
   "allo-kine": {
     "title": "Allo Kiné",
     "description": "Développement d'une solution digitale sur mesure pour un cabinet de kinésithérapie. Ce projet m'a permis de gérer la création d'un outil métier concret : modélisation de la base de données SQL pour les plannings, intégration des interfaces dynamiques en JavaScript et création de l'identité visuelle.",
-    "technologies": ["HTML5", "CSS3", "JavaScript", "SQL"],
+    "technologies": [
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "SQL"
+    ],
     "gallery": [
       "assets/allokine/Accueil.png",
       "assets/allokine/avis.png",
@@ -17,7 +22,13 @@
   "inetum": {
     "title": "Inetum",
     "description": "Projet collaboratif (3 personnes) visant à concevoir un site web institutionnel éco-responsable pour vulgariser les activités de l'ESN Inetum. En tant que responsable Git, j'ai coordonné l'équipe, conçu les maquettes et intégré 85% des pages web en appliquant les principes du Green IT.",
-    "technologies": ["HTML5", "CSS3", "Git", "UI/UX Design", "Green IT"],
+    "technologies": [
+      "HTML5",
+      "CSS3",
+      "Git",
+      "UI/UX Design",
+      "Green IT"
+    ],
     "gallery": [
       "assets/inetum/accueil.webp",
       "assets/inetum/candidater.webp",
@@ -30,7 +41,12 @@
   "morpion": {
     "title": "Morpion XO",
     "description": "Mini-jeu de Morpion jouable dans le navigateur. Mode deux joueurs et mode contre l'ordinateur avec trois niveaux de difficulté (algorithme Minimax). Interface développée entièrement en vanilla JavaScript sans bibliothèque externe.",
-    "technologies": ["HTML5", "CSS3", "JavaScript", "Minimax"],
+    "technologies": [
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "Minimax"
+    ],
     "gallery": [
       "assets/morpion/acceuil 1v1.png",
       "assets/morpion/fin partie 1V1.png",
@@ -39,5 +55,5 @@
     ],
     "codeLink": "https://github.com/omarghraibia/MORPION-XO-Omar-Ghraibia",
     "liveLink": "https://morpion-xo-omar-ghraibia.vercel.app"
-  },
+  }
 }
