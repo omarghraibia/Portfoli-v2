@@ -107,12 +107,19 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ecouteurs sur les cartes
-  const cartes = document.querySelectorAll('.project-card');
+ const cartes = document.querySelectorAll('.project-card');
+  
   cartes.forEach(carte => {
     carte.addEventListener('click', (e) => {
-      const id = carte.getAttribute('data-project');
-      if (id) {
+      const cardElement = e.target.closest('.project-card');
+      if (!cardElement) return;
+      
+      const id = cardElement.getAttribute('data-project');
+      
+      if (id && dataProjets[id]) {
         ouvrirModale(id);
+      } else {
+        console.warn("Projet introuvable pour l'id :", id);
       }
     });
   });
