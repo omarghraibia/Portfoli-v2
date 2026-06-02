@@ -38,11 +38,12 @@ document.addEventListener('DOMContentLoaded', () => {
       liveLink: "https://inetum-apoa0127m-omar-s-projects-5cbfe118.vercel.app"
     },
     "morpion": {
-      title: "Morpion XO",
-      description: "Jeu de Morpion interactif contre l'ordinateur. Développé entièrement en JavaScript pur sans bibliothèque externe.",
-      technologies: ["HTML5", "CSS3", "JavaScript"],
-      codeLink: "https://github.com/omarghraibia/MORPION-XO-Omar-Ghraibia",
-      liveLink: "https://morpion-xo-omar-ghraibia.vercel.app"
+    title: "Morpion XO",
+    description: "Jeu de Morpion interactif contre l'ordinateur.",
+    technologies: ["JavaScript"],
+    gallery: ["assets/morpion/acceuil 1v1.png"],
+    codeLink: "https://github.com/omarghraibia/MORPION-XO-Omar-Ghraibia",
+    liveLink: "https://morpion-xo-omar-ghraibia.vercel.app"
     }
   };
 
@@ -109,8 +110,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const cartes = document.querySelectorAll('.project-card');
   cartes.forEach(carte => {
     carte.addEventListener('click', (e) => {
-      if (e.target.tagName.toLowerCase() === 'a') return;
-      ouvrirModale(carte.getAttribute('data-project'));
+      const id = carte.getAttribute('data-project');
+      if (id) {
+        ouvrirModale(id);
+      }
     });
   });
 
