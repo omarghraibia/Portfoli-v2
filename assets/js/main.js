@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  // 3. Gestion de la modale (popup)
+  // 3. Gestion de la modale 
   const projectModal = document.getElementById('project-modal');
   const modalBody = document.getElementById('modal-body');
   const modalTitle = document.getElementById('modal-project-title');
@@ -59,7 +59,24 @@ document.addEventListener('DOMContentLoaded', () => {
     modalTitle.textContent = projet.title;
     modalBody.innerHTML = '';
 
-    // generation des badges
+    // 1.la galerie d'images avec scroll
+    const galleryContainer = document.createElement('div');
+    galleryContainer.className = 'modal-gallery-track';
+    
+    projet.gallery.forEach(imgSrc => {
+      const figure = document.createElement('figure');
+      figure.style.flex = "0 0 100%";
+      const img = document.createElement('img');
+      img.src = imgSrc;
+      img.alt = "Capture du projet";
+      img.style.width = "100%";
+      img.style.borderRadius = "8px";
+      figure.appendChild(img);
+      galleryContainer.appendChild(figure);
+    });
+    modalBody.appendChild(galleryContainer);
+
+    // 2. Badges
     const badgesDiv = document.createElement('div');
     badgesDiv.className = 'modal-badges-flex';
     projet.technologies.forEach(tech => {
@@ -70,30 +87,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     modalBody.appendChild(badgesDiv);
 
-    // generation de la description
+    // 3. Description
     const textDesc = document.createElement('p');
     textDesc.className = 'modal-desc-full';
     textDesc.textContent = projet.description;
     modalBody.appendChild(textDesc);
 
-    // generation des boutons
+    // 4. Boutons
     const actionsDiv = document.createElement('div');
     actionsDiv.className = 'modal-actions-row';
-
-    const btnCode = document.createElement('a');
-    btnCode.href = projet.codeLink;
-    btnCode.className = 'btn btn-code';
-    btnCode.textContent = 'Code source';
-    btnCode.target = '_blank';
-
-    const btnDemo = document.createElement('a');
-    btnDemo.href = projet.liveLink;
-    btnDemo.className = 'btn btn-demo';
-    btnDemo.textContent = 'Voir le site';
-    btnDemo.target = '_blank';
-
-    actionsDiv.appendChild(btnCode);
-    actionsDiv.appendChild(btnDemo);
+    actionsDiv.innerHTML = `
+      <a href="${projet.codeLink}" class="btn btn-code" target="_blank">Code source</a>
+      <a href="${projet.liveLink}" class="btn btn-demo" target="_blank">Voir le site</a>
+    `;
     modalBody.appendChild(actionsDiv);
 
     projectModal.classList.add('active');

@@ -335,3 +335,20 @@
     padding: 1.5rem;
   }
 }
+
+.modal-gallery-track {
+  display: flex;
+  overflow-x: auto;
+  gap: 10px;
+  scroll-snap-type: x mandatory;
+  margin-bottom: 1rem;
+  padding-bottom: 10px;
+}
+
+.modal-gallery-track img {
+  scroll-snap-align: start;
+}
+
+.single-column-modal {
+  overflow-y: auto;
+}
