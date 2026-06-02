@@ -120,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { src: 'assets/inetum/environnement.webp' },
       ],
       codeLink: 'https://github.com/D-Inetum/SAE-1.05-06',
-      liveLink: '#'
+      liveLink: 'https://inetum-apoa0127m-omar-s-projects-5cbfe118.vercel.app'
     },
   };
 
