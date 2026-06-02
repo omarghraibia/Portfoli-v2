@@ -272,7 +272,7 @@ section {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: var(--sp-xl);
-  padding: 0 var(--sp-lg);
+  padding: 0; /
   box-sizing: border-box;
 }
 
