@@ -20,7 +20,7 @@
     "liveLink": "https://allokine.vercel.app/"
   },
   "inetum": {
-    "title": "Inetum",
+    "title":"Inetum",
     "description": "Projet collaboratif (3 personnes) visant à concevoir un site web institutionnel éco-responsable pour vulgariser les activités de l'ESN Inetum. En tant que responsable Git, j'ai coordonné l'équipe, conçu les maquettes et intégré 85% des pages web en appliquant les principes du Green IT.",
     "technologies": [
       "HTML5",
@@ -39,8 +39,8 @@
     "liveLink": "https://inetum-apoa0127m-omar-s-projects-5cbfe118.vercel.app"
   },
   "morpion": {
-    "title": "Morpion XO",
-    "description": "Mini-jeu de Morpion jouable dans le navigateur. Mode deux joueurs et mode contre l'ordinateur avec trois niveaux de difficulté (algorithme Minimax). Interface développée entièrement en vanilla JavaScript sans bibliothèque externe.",
+    "title":"Morpion XO",
+    "description":"Mini-jeu de Morpion jouable dans le navigateur. Mode deux joueurs et mode contre l'ordinateur avec trois niveaux de difficulté (algorithme Minimax). Interface développée entièrement en vanilla JavaScript sans bibliothèque externe.",
     "technologies": [
       "HTML5",
       "CSS3",
