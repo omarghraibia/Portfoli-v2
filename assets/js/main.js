@@ -121,13 +121,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const navLinks = document.querySelectorAll('.nav-links a');
 
   window.addEventListener('scroll', () => {
-    let current = ''; // Variable pour stocker l'ID de la section visible
-
+    let current = ''; 
     sections.forEach(section => {
-      // On récupère la position de chaque section par rapport au haut de la page
       const sectionTop = section.offsetTop;
 
-      // Si on a défilé jusqu'à cette section (avec un petit décalage de 100px pour la navbar)
       if (scrollY >= sectionTop - 100) {
         current = section.getAttribute('id');
       }
@@ -135,9 +132,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // On parcourt tous les liens du menu
     navLinks.forEach(link => {
-      link.classList.remove('active'); // On nettoie tous les liens
+      link.classList.remove('active'); 
 
-      // Si le lien correspond à la section actuelle, on ajoute la classe 'active'
       if (link.getAttribute('href') === '#' + current) {
         link.classList.add('active');
       }
@@ -160,4 +156,30 @@ document.addEventListener('DOMContentLoaded', () => {
   fadeSections.forEach(section => {
     observer.observe(section);
   });
+
+  // envoi du formulaire sans recharger la page
+  const formulaire = document.querySelector('.contact-form');
+  const popup = document.getElementById('popup-message');
+
+  if (formulaire) {
+    formulaire.addEventListener('submit', (e) => {
+      e.preventDefault(); // bloque lenvoi classique du html
+
+      const donnees = new FormData(formulaire);
+
+      fetch(formulaire.action, {
+        method: 'POST',
+        body: donnees
+      }).then((reponse) => {
+        if (reponse.ok) {
+          formulaire.reset(); // vide les champs du formulaire
+          popup.style.display = 'block'; // affiche le message
+          
+          setTimeout(() => {
+            popup.style.display = 'none'; // cache le message apres 3s
+          }, 3000);
+        }
+      });
+    });
+  }
 });

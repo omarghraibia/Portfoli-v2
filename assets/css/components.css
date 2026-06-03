@@ -188,12 +188,11 @@
     align-items: start;
 }
 
-/* section competences */
+/* grille des competences */
 .skills-grid-2d {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr 1fr;
     gap: 1rem;
-    align-items: start;
 }
 
 .skill-card {
@@ -424,16 +423,24 @@
     align-items: center;
     gap: 0.5rem;
     padding: 0.25rem 0.5rem;
+    transition: transform 0.3s ease;
 }
 
-/* icones competences */
+/* effet au survol */
+.skill-icon-wrapper:hover {
+    transform: scale(1.1);
+}
+
+/* taille fixe des icones */
 .skill-icon-wrapper img {
-    width: 48px;
-    height: 48px;
+    width: 35px;
+    height: 35px;
     display: block;
     object-fit: contain;
 }
-
+.logo-github {
+  filter: invert(1);
+}
 .skill-icon-wrapper span {
     color: #e2e8f0;
     font-size: 0.95rem;
@@ -447,51 +454,22 @@
     color: #cbd5e1;
 }
 
-/* responsive mobile */
-@media (max-width: 768px) {
-    .hero-content-wrapper {
-        flex-direction: column-reverse;
-        text-align: center;
-        gap: 2rem;
-    }
-
-    .hero-copy {
-        text-align: center;
-    }
-
-    .hero-cta-group {
-        flex-direction: column;
-        justify-content: center;
-    }
-
-    .hero-image img {
-        width: 160px;
-        height: 160px;
-    }
-
-    .projects-grid,
-    .skills-grid-2d {
-        grid-template-columns: 1fr;
-    }
-
-    .skill-icon-wrapper img {
-        width: 40px;
-        height: 40px;
-    }
-
-    .project-actions,
-    .modal-actions-row {
-        flex-direction: column;
-    }
-
-    .btn {
-        width: 100%;
-    }
+/* popup de confirmation */
+#popup-message {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--accent-main);
+    color: #020617;
+    padding: 15px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    display: none;
+    z-index: 9999;
 }
 
-/*mobile */
+/* responsive mobile */
 @media (max-width: 768px) {
-
     .hero-content-wrapper {
         flex-direction: column-reverse;
         text-align: center;
