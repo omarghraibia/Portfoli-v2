@@ -66,9 +66,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         modalBody.innerHTML = `
           <div class="modal-carousel">
-            <button id="btn-prev" class="carousel-btn">&lt;</button>
-            <img id="carousel-display" src="${images[0]}" class="carousel-img" alt="Aperçu projet">
-            <button id="btn-next" class="carousel-btn">&gt;</button>
+            <button type="button" id="btn-prev" class="carousel-btn">&lt;</button>
+            <img id="carousel-display" src="${images[0]}" class="carousel-img" alt="apercu du projet">
+            <button type="button" id="btn-next" class="carousel-btn">&gt;</button>
           </div>
           
           <div class="modal-ppp">
@@ -96,13 +96,23 @@ document.addEventListener('DOMContentLoaded', () => {
           badgesDiv.appendChild(span);
         });
 
+        // clic sur le bouton precedent
         document.getElementById('btn-prev').addEventListener('click', () => {
-          currentImg = (currentImg === 0) ? images.length - 1 : currentImg - 1;
+          if (currentImg === 0) {
+            currentImg = images.length - 1; // retourne a la derniere photo
+          } else {
+            currentImg--; // recule d'une photo
+          }
           document.getElementById('carousel-display').src = images[currentImg];
         });
 
+        // clic sur le bouton suivant
         document.getElementById('btn-next').addEventListener('click', () => {
-          currentImg = (currentImg === images.length - 1) ? 0 : currentImg + 1;
+          if (currentImg === images.length - 1) {
+            currentImg = 0; // retourne a la premiere photo
+          } else {
+            currentImg++; // avance d'une photo
+          }
           document.getElementById('carousel-display').src = images[currentImg];
         });
 
