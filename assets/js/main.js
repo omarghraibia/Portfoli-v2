@@ -58,7 +58,10 @@ document.addEventListener('DOMContentLoaded', () => {
         modalTitle.textContent = projet.title;
         modalBody.innerHTML = ''; // on vide le contenu precedent
 
-        // 1. galerie images
+        // 1. galerie images avec boutons
+        const galleryWrapper = document.createElement('div');
+        galleryWrapper.className = 'gallery-wrapper';
+        
         const galleryContainer = document.createElement('div');
         galleryContainer.className = 'modal-gallery-track';
         
@@ -73,7 +76,27 @@ document.addEventListener('DOMContentLoaded', () => {
           figure.appendChild(img);
           galleryContainer.appendChild(figure);
         });
-        modalBody.appendChild(galleryContainer);
+        
+        // bouton gauche
+        const btnLeft = document.createElement('button');
+        btnLeft.className = 'gallery-btn gallery-btn-left';
+        btnLeft.textContent = '❮';
+        btnLeft.addEventListener('click', () => {
+          galleryContainer.scrollBy({ left: -400, behavior: 'smooth' });
+        });
+        
+        // bouton droite
+        const btnRight = document.createElement('button');
+        btnRight.className = 'gallery-btn gallery-btn-right';
+        btnRight.textContent = '❯';
+        btnRight.addEventListener('click', () => {
+          galleryContainer.scrollBy({ left: 400, behavior: 'smooth' });
+        });
+        
+        galleryWrapper.appendChild(btnLeft);
+        galleryWrapper.appendChild(galleryContainer);
+        galleryWrapper.appendChild(btnRight);
+        modalBody.appendChild(galleryWrapper);
 
         // 2. tags
         const badgesDiv = document.createElement('div');
@@ -102,6 +125,8 @@ document.addEventListener('DOMContentLoaded', () => {
         modalBody.appendChild(actionsDiv);
 
         modal.classList.add('active');
+        // empêcher scroll du body
+        document.body.style.overflow = 'hidden';
       }
     });
   });
@@ -109,5 +134,14 @@ document.addEventListener('DOMContentLoaded', () => {
   // fermeture modale
   document.getElementById('modal-close').addEventListener('click', () => {
     modal.classList.remove('active');
+    // réactiver le scroll du body
+    document.body.style.overflow = '';
+  });
+
+  // fermer la modale en cliquant sur le fond
+  document.getElementById('modal-overlay').addEventListener('click', () => {
+    modal.classList.remove('active');
+    // réactiver le scroll du body
+    document.body.style.overflow = '';
   });
 });
