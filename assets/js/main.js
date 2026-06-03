@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
       "competences": "SQL, HTML/CSS, JavaScript, UI Design.",
       "technologies": ["HTML5", "CSS3", "JavaScript", "SQL"],
       "gallery": [
-        "assets/allokine/Accueil.png", "assets/allokine/avis.png", 
+        "assets/allokine/Accueil.png", "assets/allokine/avis.png",
         "assets/allokine/connexion.png", "assets/allokine/contact.png"
       ],
       "codeLink": "https://github.com/omarghraibia/allokine",
@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
       "competences": "Gestion de projet, Git, Eco-conception web.",
       "technologies": ["HTML5", "CSS3", "Git", "Green IT"],
       "gallery": [
-        "assets/inetum/accueil.webp", "assets/inetum/candidater.webp", 
+        "assets/inetum/accueil.webp", "assets/inetum/candidater.webp",
         "assets/inetum/contact.webp"
       ],
       "codeLink": "https://github.com/D-Inetum/SAE-1.05-06",
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
       "competences": "Algorithmique, manipulation du DOM.",
       "technologies": ["HTML5", "CSS3", "JavaScript"],
       "gallery": [
-        "assets/morpion/acceuil 1v1.png", "assets/morpion/fin partie 1V1.png", 
+        "assets/morpion/acceuil 1v1.png", "assets/morpion/fin partie 1V1.png",
         "assets/morpion/fin vs robot.png"
       ],
       "codeLink": "https://github.com/omarghraibia/MORPION-XO-Omar-Ghraibia",
@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let images = projet.gallery;
 
         modalTitle.textContent = projet.title;
-        
+
         modalBody.innerHTML = `
           <div class="modal-carousel">
             <button id="btn-prev" class="carousel-btn">&lt;</button>
@@ -115,5 +115,49 @@ document.addEventListener('DOMContentLoaded', () => {
   // fermer la modale
   document.getElementById('modal-close').addEventListener('click', () => {
     modal.classList.remove('active');
+  });
+  // COLORER LE MENU SELON LE DEFILEMENT 
+  const sections = document.querySelectorAll('section');
+  const navLinks = document.querySelectorAll('.nav-links a');
+
+  window.addEventListener('scroll', () => {
+    let current = ''; // Variable pour stocker l'ID de la section visible
+
+    sections.forEach(section => {
+      // On récupère la position de chaque section par rapport au haut de la page
+      const sectionTop = section.offsetTop;
+
+      // Si on a défilé jusqu'à cette section (avec un petit décalage de 100px pour la navbar)
+      if (scrollY >= sectionTop - 100) {
+        current = section.getAttribute('id');
+      }
+    });
+
+    // On parcourt tous les liens du menu
+    navLinks.forEach(link => {
+      link.classList.remove('active'); // On nettoie tous les liens
+
+      // Si le lien correspond à la section actuelle, on ajoute la classe 'active'
+      if (link.getAttribute('href') === '#' + current) {
+        link.classList.add('active');
+      }
+    });
+  });
+
+  // ANIMATION DES SECTIONS AU DEFILEMENT
+  const fadeSections = document.querySelectorAll('.fade-in-section');
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      // Si la section entre dans l'écran
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  fadeSections.forEach(section => {
+    observer.observe(section);
   });
 });

@@ -79,18 +79,22 @@
   transition: color 0.3s ease;
 }
 
-.nav-links a:hover,
-.nav-links a[aria-current="page"],
-.footer-nav-grid a:hover,
-.footer-socials a:hover {
-  color: var(--accent-main);
-}
+  .nav-links a {
+    color: #e2e8f0;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
 
-.nav-links a:focus-visible {
-  outline: 2px solid var(--accent-main);
-  outline-offset: 4px;
-  border-radius: 6px;
-}
+  .nav-links a:hover,
+  .nav-links a.active {
+    color: var(--accent-main);
+    font-weight: bold;
+  }
+
+  .nav-links a.active svg {
+    stroke: var(--accent-main);
+  }
+
 
 /* menu burger (mobile) */
 .hamburger {
