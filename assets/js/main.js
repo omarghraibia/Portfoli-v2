@@ -1,55 +1,47 @@
 document.addEventListener('DOMContentLoaded', () => {
-
-  // Base de donnees des mes projets
+  // donnees des projets
   const dataProjets = {
     "allo-kine": {
       "title": "Allo Kiné",
-      "description": "Développement d'une solution digitale sur mesure pour un cabinet de kinésithérapie (projet pour le cabinet de mon père).",
-      "objectifs": "Moderniser l'activité et faciliter la gestion des patients et des plannings.",
-      "travailGroupe": "Projet réalisé en autonomie complète (1 personne).",
-      "travailIndividuel": "Modélisation de la base de données, développement Front-End et Back-End, création de l'identité visuelle (logo).",
-      "competences": "Modélisation SQL, intégration dynamique, conception UX/UI.",
+      "description": "Solution web pour un cabinet de kinésithérapie (projet réel).",
+      "objectifs": "Moderniser l'activité, gérer les patients et les plannings.",
+      "groupe": "Projet réalisé en autonomie.",
+      "role": "Modélisation BDD SQL, développement Front-End et création du logo.",
+      "competences": "SQL, HTML/CSS, JavaScript, UI Design.",
       "technologies": ["HTML5", "CSS3", "JavaScript", "SQL"],
       "gallery": [
-        "assets/allokine/Accueil.png",
-        "assets/allokine/avis.png",
-        "assets/allokine/connexion.png",
-        "assets/allokine/contact.png",
-        "assets/allokine/Galerie.png",
-        "assets/allokine/Tarifs.png"
+        "assets/allokine/Accueil.png", "assets/allokine/avis.png", 
+        "assets/allokine/connexion.png", "assets/allokine/contact.png"
       ],
       "codeLink": "https://github.com/omarghraibia/allokine",
       "liveLink": "https://allokine.vercel.app/"
     },
     "inetum": {
       "title": "Inetum",
-      "description": "Projet collaboratif visant à concevoir un site web institutionnel éco-responsable pour vulgariser les activités de l'ESN Inetum auprès des collégiens.",
-      "objectifs": "Créer une interface accessible et respectueuse des principes du Green IT.",
-      "travailGroupe": "Équipe de 3 personnes. Répartition des tâches de design et de développement.",
-      "travailIndividuel": "Rôle de responsable Git (coordination et fusion), direction artistique (maquettes) et intégration de 85% des pages web.",
-      "competences": "Gestion de projet, versioning, éco-conception web.",
-      "technologies": ["HTML5", "CSS3", "Git", "UI/UX Design", "Green IT"],
+      "description": "Site web institutionnel éco-responsable pour vulgariser l'ESN Inetum.",
+      "objectifs": "Créer une interface accessible et respectueuse du Green IT.",
+      "groupe": "Travail en équipe de 3 personnes.",
+      "role": "Responsable Git, conception des maquettes et intégration de 85% des pages.",
+      "competences": "Gestion de projet, Git, Eco-conception web.",
+      "technologies": ["HTML5", "CSS3", "Git", "Green IT"],
       "gallery": [
-        "assets/inetum/accueil.webp",
-        "assets/inetum/candidater.webp",
-        "assets/inetum/contact.webp",
-        "assets/inetum/environnement.webp"
+        "assets/inetum/accueil.webp", "assets/inetum/candidater.webp", 
+        "assets/inetum/contact.webp"
       ],
       "codeLink": "https://github.com/D-Inetum/SAE-1.05-06",
       "liveLink": "https://inetum-apoa0127m-omar-s-projects-5cbfe118.vercel.app"
     },
     "morpion": {
       "title": "Morpion XO",
-      "description": "Mini-jeu de Morpion (Tic-Tac-Toe) jouable dans le navigateur avec un mode deux joueurs et un mode contre l'ordinateur.",
-      "objectifs": "Mettre en pratique la logique algorithmique complexe en JavaScript vanilla.",
-      "travailGroupe": "Projet réalisé en autonomie (1 personne).",
-      "travailIndividuel": "Développement de la logique de jeu, de l'interface et implémentation de l'algorithme Minimax pour l'intelligence artificielle.",
-      "competences": "Algorithmique avancée, manipulation du DOM, logique de jeu.",
-      "technologies": ["HTML5", "CSS3", "JavaScript", "Minimax"],
+      "description": "Mini-jeu de Morpion interactif dans le navigateur.",
+      "objectifs": "Implémenter une logique algorithmique complexe (Minimax).",
+      "groupe": "Projet réalisé en autonomie.",
+      "role": "Développement de toute la logique JavaScript et de l'interface.",
+      "competences": "Algorithmique, manipulation du DOM.",
+      "technologies": ["HTML5", "CSS3", "JavaScript"],
       "gallery": [
-        "assets/morpion/acceuil 1v1.png",
-        "assets/morpion/fin partie 1V1.png",
-        "assets/morpion/VS ROBOT.png"
+        "assets/morpion/acceuil 1v1.png", "assets/morpion/fin partie 1V1.png", 
+        "assets/morpion/fin vs robot.png"
       ],
       "codeLink": "https://github.com/omarghraibia/MORPION-XO-Omar-Ghraibia",
       "liveLink": "https://morpion-xo-omar-ghraibia.vercel.app"
@@ -57,87 +49,70 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const modal = document.getElementById('project-modal');
-  const modalBody = document.getElementById('modal-body');
   const modalTitle = document.getElementById('modal-project-title');
+  const modalBody = document.getElementById('modal-body');
 
-  
+  // gerer le clic sur les cartes
   document.querySelectorAll('.project-card').forEach(carte => {
     carte.addEventListener('click', () => {
       const id = carte.getAttribute('data-project');
       const projet = dataProjets[id];
 
       if (projet) {
+        let currentImg = 0;
+        let images = projet.gallery;
+
         modalTitle.textContent = projet.title;
-        modalBody.innerHTML = '';
-
-        // CARROUSEL D'IMAGES AVEC FLECHES 
-        const carousel = document.createElement('div');
-        carousel.className = 'modal-carousel';
         
-        const imgDisplay = document.createElement('img');
-        let currentImgIndex = 0;
-        imgDisplay.src = projet.gallery[currentImgIndex];
-        imgDisplay.className = 'carousel-img';
-        
-        const btnPrev = document.createElement('button');
-        btnPrev.textContent = "◄";
-        btnPrev.className = 'carousel-btn prev';
-        btnPrev.onclick = () => {
-          currentImgIndex = (currentImgIndex - 1 + projet.gallery.length) % projet.gallery.length;
-          imgDisplay.src = projet.gallery[currentImgIndex];
-        };
+        modalBody.innerHTML = `
+          <div class="modal-carousel">
+            <button id="btn-prev" class="carousel-btn">&lt;</button>
+            <img id="carousel-display" src="${images[0]}" class="carousel-img" alt="Aperçu projet">
+            <button id="btn-next" class="carousel-btn">&gt;</button>
+          </div>
+          
+          <div class="modal-ppp">
+            <p><strong>Description :</strong> ${projet.description}</p>
+            <p><strong>Objectifs :</strong> ${projet.objectifs}</p>
+            <p><strong>Organisation :</strong> ${projet.groupe}</p>
+            <p><strong>Mon rôle :</strong> ${projet.role}</p>
+            <p><strong>Savoir-faire acquis :</strong> ${projet.competences}</p>
+          </div>
 
-        const btnNext = document.createElement('button');
-        btnNext.textContent = "►";
-        btnNext.className = 'carousel-btn next';
-        btnNext.onclick = () => {
-          currentImgIndex = (currentImgIndex + 1) % projet.gallery.length;
-          imgDisplay.src = projet.gallery[currentImgIndex];
-        };
+          <div id="modal-badges" class="modal-badges-flex"></div>
 
-        carousel.appendChild(btnPrev);
-        carousel.appendChild(imgDisplay);
-        carousel.appendChild(btnNext);
-        modalBody.appendChild(carousel);
-
-        // STRUCTURE PPP 
-        const pppDiv = document.createElement('div');
-        pppDiv.className = 'modal-ppp-content';
-        pppDiv.innerHTML = `
-          <p><strong>Description :</strong> ${projet.description}</p>
-          <p><strong>Objectifs :</strong> ${projet.objectifs}</p>
-          <p><strong>Organisation :</strong> ${projet.travailGroupe}</p>
-          <p><strong>Mon rôle :</strong> ${projet.travailIndividuel}</p>
-          <p><strong>Compétences acquises :</strong> ${projet.competences}</p>
+          <div class="modal-actions-row">
+            <a href="${projet.codeLink}" target="_blank" class="btn btn-code">Code source</a>
+            <a href="${projet.liveLink}" target="_blank" class="btn btn-demo">Voir le site</a>
+          </div>
         `;
-        modalBody.appendChild(pppDiv);
 
-        // BADGES TECHNOS
-        const badgesDiv = document.createElement('div');
-        badgesDiv.className = 'modal-badges-flex';
+        // ajouter les tags
+        const badgesDiv = document.getElementById('modal-badges');
         projet.technologies.forEach(tech => {
-          const span = document.createElement('span');
+          let span = document.createElement('span');
           span.className = 'tag tech-badge';
           span.textContent = tech;
           badgesDiv.appendChild(span);
         });
-        modalBody.appendChild(badgesDiv);
 
-        // BOUTONS LIENS 
-        const actionsDiv = document.createElement('div');
-        actionsDiv.className = 'modal-actions-row';
-        actionsDiv.innerHTML = `
-          <a href="${projet.codeLink}" class="btn btn-code" target="_blank">Code source</a>
-          <a href="${projet.liveLink}" class="btn btn-demo" target="_blank">Voir le site</a>
-        `;
-        modalBody.appendChild(actionsDiv);
+        document.getElementById('btn-prev').addEventListener('click', () => {
+          currentImg = (currentImg === 0) ? images.length - 1 : currentImg - 1;
+          document.getElementById('carousel-display').src = images[currentImg];
+        });
 
+        document.getElementById('btn-next').addEventListener('click', () => {
+          currentImg = (currentImg === images.length - 1) ? 0 : currentImg + 1;
+          document.getElementById('carousel-display').src = images[currentImg];
+        });
+
+        // afficher la modale
         modal.classList.add('active');
       }
     });
   });
 
-  // 3. Fermeture de la modale
+  // fermer la modale
   document.getElementById('modal-close').addEventListener('click', () => {
     modal.classList.remove('active');
   });
