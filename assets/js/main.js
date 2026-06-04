@@ -1,4 +1,24 @@
 document.addEventListener('DOMContentLoaded', () => {
+  
+  // menu mobile
+  const hamburger = document.getElementById('hamburger-menu');
+  const menu = document.querySelector('.nav-links');
+
+  if (hamburger && menu) {
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('toggle');
+      menu.classList.toggle('active');
+    });
+
+    // fermer le menu quand on clique sur un lien
+    document.querySelectorAll('.nav-links a').forEach(lien => {
+      lien.addEventListener('click', () => {
+        hamburger.classList.remove('toggle');
+        menu.classList.remove('active');
+      });
+    });
+  }
+
   // donnees des projets
   const dataProjets = {
     "allo-kine": {
