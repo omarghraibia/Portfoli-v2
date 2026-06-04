@@ -16,7 +16,7 @@
       --glow: rgba(0, 229, 160, 0.3);
     }
 
-    /* reset de base */
+    
     * {
       box-sizing: border-box;
       margin: 0;
@@ -25,7 +25,7 @@
 
     body {
       min-height: 100vh;
-      font-family: 'Inter', sans-serif; /* police simplifiée */
+      font-family: 'Inter', sans-serif; 
       background: var(--bg);
       color: var(--text-light);
       display: flex;
@@ -82,20 +82,19 @@
       border: 2px solid var(--accent);
     }
 
-    /* effet au survol simple et propre */
+    /* effet au survol */
     .btn-primary:hover {
       transform: translateY(-3px);
       box-shadow: 0 8px 20px var(--glow);
     }
 
-    /* bouton secondaire (contour) */
+    /* bouton secondaire */
     .btn-outline {
       background: transparent;
       color: var(--accent);
       border: 2px solid var(--accent);
     }
 
-    /* remplissage classique au lieu du scaleX animé */
     .btn-outline:hover {
       background: var(--accent);
       color: var(--accent-dark);

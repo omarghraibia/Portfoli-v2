@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
         "assets/inetum/contact.webp"
       ],
       "codeLink": "https://github.com/D-Inetum/SAE-1.05-06",
-      "liveLink": "https://inetum-apoa0127m-omar-s-projects-5cbfe118.vercel.app"
+      "liveLink": "https://sae-1-05-06.vercel.app"
     },
     "morpion": {
       "title": "Morpion XO",
