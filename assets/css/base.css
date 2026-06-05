@@ -1,31 +1,25 @@
-/* variables globales */
+/* vars */
 :root {
-  /* couleurs sombres */
   --bg-deep: #0f172a;
   --bg-surface: rgba(15, 23, 42, 0.8);
   --bg-panel: rgba(20, 28, 44, 0.7);
 
-  /* textes */
   --text-primary: #e2e8f0;
   --text-secondary: #cbd5e1;
   --text-muted: #94a3b8;
 
-  /* vert */
   --accent-main: #4ade80;
   --accent-hover: #86efac;
 
-  /* bordures et ombres */
   --border-color: rgba(226, 232, 240, 0.1);
   --shadow-sm: 0 4px 15px rgba(0, 0, 0, 0.2);
   --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.3);
 
-  /* polices responsives */
   --fs-h1: clamp(2.5rem, 8vw, 4.5rem);
   --fs-h2: clamp(2rem, 5vw, 3rem);
   --fs-h3: 1.5rem;
   --fs-body: 1rem;
 
-  /* marges */
   --sp-sm: 1rem;
   --sp-md: 1.5rem;
   --sp-lg: 2rem;
@@ -34,7 +28,6 @@
   --transition: 0.3s ease-in-out;
 }
 
-/* version mobile */
 @media (max-width: 640px) {
   :root {
     --fs-h1: 2.5rem;
@@ -44,7 +37,6 @@
   }
 }
 
-/* reset */
 *,
 *::before,
 *::after {
@@ -55,7 +47,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 90px; /* pour le menu fixe */
+  scroll-padding-top: 90px;
 }
 
 body {
@@ -68,7 +60,6 @@ body {
   overflow-x: hidden;
 }
 
-/* typos */
 h1,
 h2,
 h3 {
@@ -97,7 +88,6 @@ p {
   color: var(--text-secondary);
 }
 
-/* classes couleurs */
 .text-accent {
   color: var(--accent-main);
 }
@@ -106,7 +96,6 @@ p {
   color: var(--text-muted);
 }
 
-/* style global */
 img,
 svg,
 video {
@@ -143,7 +132,6 @@ ol {
   color: var(--bg-deep);
 }
 
-/* style du code inline */
 code,
 pre {
   font-family: monospace;

@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
   
-  // menu mobile
   const hamburger = document.getElementById('hamburger-menu');
   const menu = document.querySelector('.nav-links');
 
@@ -10,7 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
       menu.classList.toggle('active');
     });
 
-    // fermer le menu quand on clique sur un lien
     document.querySelectorAll('.nav-links a').forEach(lien => {
       lien.addEventListener('click', () => {
         hamburger.classList.remove('toggle');
@@ -19,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // donnees des projets
+  // mes projets
   const dataProjets = {
     "allo-kine": {
       "title": "Allo Kiné",
@@ -72,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const modalTitle = document.getElementById('modal-project-title');
   const modalBody = document.getElementById('modal-body');
 
-  // gerer le clic sur les cartes
+  // recup les infos et affiche la modale
   document.querySelectorAll('.project-card').forEach(carte => {
     carte.addEventListener('click', () => {
       const id = carte.getAttribute('data-project');
@@ -107,7 +105,6 @@ document.addEventListener('DOMContentLoaded', () => {
           </div>
         `;
 
-        // ajouter les tags
         const badgesDiv = document.getElementById('modal-badges');
         projet.technologies.forEach(tech => {
           let span = document.createElement('span');
@@ -116,37 +113,33 @@ document.addEventListener('DOMContentLoaded', () => {
           badgesDiv.appendChild(span);
         });
 
-        // clic sur le bouton precedent
         document.getElementById('btn-prev').addEventListener('click', () => {
           if (currentImg === 0) {
-            currentImg = images.length - 1; // retourne a la derniere photo
+            currentImg = images.length - 1;
           } else {
-            currentImg--; // recule d'une photo
+            currentImg--;
           }
           document.getElementById('carousel-display').src = images[currentImg];
         });
 
-        // clic sur le bouton suivant
         document.getElementById('btn-next').addEventListener('click', () => {
           if (currentImg === images.length - 1) {
-            currentImg = 0; // retourne a la premiere photo
+            currentImg = 0;
           } else {
-            currentImg++; // avance d'une photo
+            currentImg++;
           }
           document.getElementById('carousel-display').src = images[currentImg];
         });
 
-        // afficher la modale
         modal.classList.add('active');
       }
     });
   });
 
-  // fermer la modale
   document.getElementById('modal-close').addEventListener('click', () => {
     modal.classList.remove('active');
   });
-  // COLORER LE MENU SELON LE DEFILEMENT 
+  // highlight lien menu au scroll
   const sections = document.querySelectorAll('section');
   const navLinks = document.querySelectorAll('.nav-links a');
 
@@ -160,7 +153,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // On parcourt tous les liens du menu
     navLinks.forEach(link => {
       link.classList.remove('active'); 
 
@@ -170,12 +162,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // ANIMATION DES SECTIONS AU DEFILEMENT
   const fadeSections = document.querySelectorAll('.fade-in-section');
 
   const observer = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
-      // Si la section entre dans l'écran
       if (entry.isIntersecting) {
         entry.target.classList.add('is-visible');
         observer.unobserve(entry.target);
@@ -187,13 +177,13 @@ document.addEventListener('DOMContentLoaded', () => {
     observer.observe(section);
   });
 
-  // envoi du formulaire sans recharger la page
+  // ajax pour le form
   const formulaire = document.querySelector('.contact-form');
   const popup = document.getElementById('popup-message');
 
   if (formulaire) {
     formulaire.addEventListener('submit', (e) => {
-      e.preventDefault(); // bloque lenvoi classique du html
+      e.preventDefault();
 
       const donnees = new FormData(formulaire);
 
@@ -202,11 +192,11 @@ document.addEventListener('DOMContentLoaded', () => {
         body: donnees
       }).then((reponse) => {
         if (reponse.ok) {
-          formulaire.reset(); // vide les champs du formulaire
-          popup.style.display = 'block'; // affiche le message
+          formulaire.reset();
+          popup.style.display = 'block';
           
           setTimeout(() => {
-            popup.style.display = 'none'; // cache le message apres 3s
+            popup.style.display = 'none';
           }, 3000);
         }
       });

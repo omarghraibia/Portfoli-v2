@@ -1,4 +1,3 @@
-/*boutons*/
 .btn {
     display: inline-flex;
     align-items: center;
@@ -54,7 +53,7 @@
     background: #f8fafc;
 }
 
-/* accueil */
+/* hero */
 .hero-content-wrapper {
     display: flex;
     align-items: center;
@@ -105,7 +104,7 @@
     transform: translateY(-3px);
 }
 
-/* cartes des projets */
+/* cards projets */
 .project-card {
     display: flex;
     flex-direction: column;
@@ -180,7 +179,6 @@
     margin-top: auto;
 }
 
-/* section projets */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -188,7 +186,6 @@
     align-items: start;
 }
 
-/* grille des competences */
 .skills-grid-2d {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -205,7 +202,7 @@
     border: 1px solid rgba(255, 255, 255, 0.04);
 }
 
-/* modale et carrousel */
+/* modale */
 .modal {
     display: none;
     position: fixed;
@@ -299,7 +296,7 @@
     margin-top: 1rem;
 }
 
-/* formulaire */
+/* form */
 .contact-card {
     background: #1e293b;
     padding: 2rem;
@@ -328,7 +325,6 @@
     border-radius: 5px;
 }
 
-/* pages legales */
 .legal-page {
     padding: 4rem 1rem;
     background: #0b1120;
@@ -399,7 +395,6 @@
     background: #334155;
 }
 
-/* section competences*/
 .skill-category {
     background: #0f172a;
     color: #e2e8f0;
@@ -428,12 +423,10 @@
     transition: transform 0.3s ease;
 }
 
-/* effet au survol */
 .skill-icon-wrapper:hover {
     transform: scale(1.1);
 }
 
-/* taille fixe des icones */
 .skill-icon-wrapper img {
     width: 35px;
     height: 35px;
@@ -448,7 +441,6 @@
     font-size: 0.95rem;
 }
 
-/* section contact */
 #contact .section-title {
     margin-bottom: 0.5rem; 
 }
@@ -460,7 +452,6 @@
     color: #cbd5e1;
 }
 
-/* popup de confirmation */
 #popup-message {
     position: fixed;
     bottom: 20px;
@@ -474,7 +465,7 @@
     z-index: 9999;
 }
 
-/* responsive mobile */
+/* mobile */
 @media (max-width: 768px) {
     .hero-content-wrapper {
         flex-direction: column-reverse;

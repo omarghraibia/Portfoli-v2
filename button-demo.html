@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Démo Boutons | Portfolio</title>
   <style>
-    /* variables globales */
     :root {
       --bg: #07111f;
       --accent: #00e5a0;
@@ -16,7 +15,6 @@
       --glow: rgba(0, 229, 160, 0.3);
     }
 
-    
     * {
       box-sizing: border-box;
       margin: 0;
@@ -34,7 +32,6 @@
       padding: 2rem;
     }
 
-    /* conteneur pour la démo */
     .screen {
       text-align: center;
       max-width: 600px;
@@ -53,7 +50,6 @@
       justify-content: center;
     }
 
-    /* style commun des boutons */
     .cta-button {
       display: inline-flex;
       align-items: center;
@@ -75,20 +71,17 @@
       fill: none;
     }
 
-    /* bouton principal */
     .btn-primary {
       background: var(--accent);
       color: var(--accent-dark);
       border: 2px solid var(--accent);
     }
 
-    /* effet au survol */
     .btn-primary:hover {
       transform: translateY(-3px);
       box-shadow: 0 8px 20px var(--glow);
     }
 
-    /* bouton secondaire */
     .btn-outline {
       background: transparent;
       color: var(--accent);
@@ -104,6 +97,8 @@
   </style>
 </head>
 <body>
+
+  <!-- boutons demo -->
   <div class="screen">
     <h1>Boutons Call-to-Action</h1>
     <div class="button-row">
