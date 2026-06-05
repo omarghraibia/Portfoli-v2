@@ -9,6 +9,13 @@ L'objectif principal de ce site est de documenter les projets que j'ai réalisé
 Le site est développé de manière classique, sans framework :
 - HTML5 et CSS3 (utilisation de Flexbox, CSS Grid et de variables pour gérer les couleurs).
 - JavaScript (Vanilla) pour gérer les interactions de la page.
+#Performances et Qualité Web
+
+Une attention particulière a été portée à l'optimisation globale du portfolio (réduction du poids des ressources, sémantique HTML stricte, accessibilité). L'objectif est d'appliquer concrètement les bonnes pratiques du web dès cette première année. 
+
+Les résultats de l'audit Google PageSpeed Insights (Lighthouse) sur la version bureau confirment cette démarche qualité :
+
+![Scores PageSpeed Insights : 99% en Performance, 96% Accessibilité, 92% Bonnes Pratiques, 91% SEO](assets/img/pagespeed-scores.png)
 
 ## Organisation du code
 

@@ -401,6 +401,12 @@
     padding: 1rem;
     border-radius: 8px;
     border: 1px solid rgba(255, 255, 255, 0.04);
+    transition: 0.3s;
+}
+
+.skill-category:hover {
+    transform: translateY(-3px);
+    border-color: var(--accent-main);
 }
 
 .skill-category h3 {
@@ -463,6 +469,12 @@
     font-weight: bold;
     display: none;
     z-index: 9999;
+}
+
+/* outline focus */
+:focus-visible {
+    outline: 2px solid var(--accent-main);
+    outline-offset: 3px;
 }
 
 /* mobile */

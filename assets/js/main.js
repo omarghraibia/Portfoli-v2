@@ -21,8 +21,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const dataProjets = {
     "allo-kine": {
       "title": "Allo Kiné",
-      "description": "Solution web pour un cabinet de kinésithérapie (projet réel).",
-      "objectifs": "Moderniser l'activité, gérer les patients et les plannings.",
+      "description": "Solution web pour répondre au besoin d'un cabinet de kinésithérapie (interface patient, agenda, données médicales).",
+      "objectifs": "Faire une interface simple à utiliser pour la gestion des rendez-vous et des patients.",
       "groupe": "Projet réalisé en autonomie.",
       "role": "Modélisation BDD SQL, développement Front-End et création du logo.",
       "competences": "SQL, HTML/CSS, JavaScript, UI Design.",
@@ -71,6 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const modalBody = document.getElementById('modal-body');
 
   // recup les infos et affiche la modale
+  // a11y clavier
   document.querySelectorAll('.project-card').forEach(carte => {
     carte.addEventListener('click', () => {
       const id = carte.getAttribute('data-project');
@@ -132,6 +133,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         modal.classList.add('active');
+      }
+    });
+
+    // ouverture avec entree
+    carte.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        carte.click();
       }
     });
   });
